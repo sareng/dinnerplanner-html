@@ -1,0 +1,15 @@
+
+#header {
+	background-color: #e6e6e6;
+}
+#newDinnerView {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+#newDinner {
+  background-color: orange;
+  color: black;
+  border: 2px solid #555555;
+  margin:20px;
+}
