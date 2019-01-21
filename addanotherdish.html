@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+	<div class="container-fluid">
+		<div id="header" class="row justify-content-center">
+			<h1>Dinner planner</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div id="contentContainer" class="row">
+			<div id="sidepanel" class="col-2">
+				<div class="row"> <b>My dinner</b>
+				</div>
+				<div class="row">
+					<!--TO DO ADD ACTION-->
+					<div class="col-10"><form> People <input type="number" name="numPeople" min="1" max="999" value="3">
+					</form></div>
+					
+				</div>
+				<div id="sidepanelDishHdr" class="row">
+					<div class="col-8" style="text-align: left; padding:0px;">Dish Name
+					</div> 
+					<div class="col-4" style="text-align: right;">Cost
+					</div>
+					
+				</div>
+				<div class="row dishes prices">
+					<div class="col-8" style="text-align: left; padding:0px;">Lasagne
+					</div> 
+					<div class="col-4" style="text-align: right;">77.20
+					</div>
+					
+				</div>
+				<div class="row justify-content-end prices">
+					SEK 77.20
+				</div>
+				<div class="row justify-content-center">
+					<button class="btn">Confirm Dinner</button>
+				</div>
+				
+			</div>
+
+			<div id ="selectDishArea" class=col-10>
+				<div  class="row">
+					<div class="col-3"> <b>ADD ANOTHER ONE </b></div>
+				</div>
+				<div id="dishSearch" class="row align-items-center">
+					<div id="keyWordSearch" class="col-3">
+						<form class="searchBar">
+							<input type="text" placeholder="Enter key words" name="search">
+						</form>
+					</div>
+					<div id="courseDropdown" class="col-3">
+						<div class="dropdown">
+						    <button class="dropdown-toggle" type="button" data-toggle="dropdown">Course<span class="caret"></span></button>
+						    <ul class="dropdown-menu">
+						      <li><a href="#">Main Course</a></li>
+						      <li><a href="#">Side Dish</a></li>
+						      <li><a href="#">Dessert</a></li>
+						      <li><a href="#">Appertizer</a></li>
+						    </ul>
+						  </div>
+					</div>
+					<div class="col-3">
+						<button class="btn">Search</button>
+					</div>
+				</div>
+
+				<hr>
+
+				<div id="dishGrid" class="row">
+					<figure>
+					    <img class="gridImg" src="images/toast.jpg" alt="toast">
+					    <figcaption>Toast</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/sourdough.jpg" alt="sourdough">
+					    <figcaption class="">Sourdough</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/bakedbrie.jpg" alt="bakedbrie">
+					    <figcaption>Baked brie</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/meatballs.jpg" alt="meatballs">
+					    <figcaption>Meatballs</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/icecream.jpg" alt="icecream">
+					    <figcaption>Icecream</figcaption>
+					</figure>
+
+
+
+									<div id="dishGrid" class="row">
+					<figure>
+					    <img class="gridImg" src="images/toast.jpg" alt="toast">
+					    <figcaption>Toast</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/sourdough.jpg" alt="sourdough">
+					    <figcaption class="">Sourdough</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/bakedbrie.jpg" alt="bakedbrie">
+					    <figcaption>Baked brie</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/meatballs.jpg" alt="meatballs">
+					    <figcaption>Meatballs</figcaption>
+					</figure>
+					<figure>
+					    <img class="gridImg" src="images/icecream.jpg" alt="icecream">
+					    <figcaption>Icecream</figcaption>
+					</figure>
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>

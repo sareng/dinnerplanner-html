@@ -1,0 +1,56 @@
+html, body {
+	height:100%;
+}
+figcaption {
+	text-align: center;
+	border: 2px solid #555555;
+	background-color: #cccccc;
+}
+figure {
+	margin:10px;
+}
+.border {
+	border: 2px solid #555555;
+}
+.btn {
+	background-color: #ffc14d;
+	color: black;
+	border: 2px solid #555555;
+}
+.disabled {
+	background-color: lightgray;
+}
+.dishes {
+	margin-top:1px;
+	border:1px solid #404040;
+	background-color: #e6e6e6;
+}
+.gridImg {
+	border:2px solid #555555;
+
+}
+.prices {
+	color:darkred;
+}
+.row {
+	padding:10px;
+}
+#header {
+	background-color: #e6e6e6;
+}
+#newDinner {
+	margin:20px;
+}
+#newDinnerView {
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+#sidepanel {
+	border:1px solid #666666;
+	height:100%;
+}
+#sidepanelDishHdr {
+	border:1px solid #404040;
+	background-color: #cccccc
+}
