@@ -1,3 +1,11 @@
+.card {
+	text-align: center;
+}
+.card-img-top {
+	object-fit: cover;
+
+	height: 126px;
+}
 html, body {
 	height:100%;
 }
@@ -32,9 +40,7 @@ figure {
 .prices {
 	color:darkred;
 }
-.row {
-	padding:10px;
-}
+
 #header {
 	background-color: #e6e6e6;
 }
@@ -46,11 +52,14 @@ figure {
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
-#sidepanel {
+.sidePanel {
 	border:1px solid #666666;
 	height:100%;
 }
-#sidepanelDishHdr {
+.sidePanel .dishHdr {
 	border:1px solid #404040;
 	background-color: #cccccc
+}
+.cost {
+	text-align: center;
 }

@@ -13,95 +13,167 @@
 
   </head>
   <body>
-	<div class="container-fluid">
-		<div id="header" class="row justify-content-center">
-			<h1>Dinner planner</h1>
-		</div>
-	</div>
+  <div class="modal fade" id="downloadNow" tabindex="-1" role="dialog" aria-labelledby="downloadNowLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">You see, the thing is ...</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				  </button>
+			  </div>
+			  <div class="modal-body">
+				  Unfortunately the project isn't complete yet but feel free to read our documents, blogs or even
+				  walk up to us and give us a nice rant about how you look forward to the product so much and
+				  would like it to be out right now</i>
+				  <br>
+				  <br>
+				  We hope to have it complete before trade show <i class="fas fa-smile"></i>
+				  <br>
+			  </div>
+			  <div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  </div>
+		  </div>
+	  </div>
+  </div>
 
-	<div class="container-fluid">
-		<div id="contentContainer" class="row">
-			<div id="sidepanel" class="col-2">
-				<div class="row"> <b>My dinner</b>
-				</div>
-				<div class="row">
-					<!--TO DO ADD ACTION-->
-					<div class="col-10"><form> People <input type="number" name="numPeople" min="1" max="999" value="3">
-					</form></div>
-					
-				</div>
-				<div id="sidepanelDishHdr" class="row">
-					<div class="col-8" style="text-align: left; padding:0px;">Dish Name
-					</div> 
-					<div class="col-4" style="text-align: right;">Cost
-					</div>
-					
-				</div>
-				<div class="row justify-content-end prices">
-					SEK 0.00
-				</div>
-				<div class="row justify-content-center">
-					<button class="btn disabled">Confirm Dinner</button>
-				</div>
-				
-			</div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #333A42;">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+	  </button>
 
-			<div id ="selectDishArea" class=col-10>
-				<div  class="row">
-					<div class="col-3"> <b>FIND A DISH </b></div>
-				</div>
-				<div id="dishSearch" class="row align-items-center">
-					<div id="keyWordSearch" class="col-3">
-						<form class="searchBar">
-							<input type="text" placeholder="Enter key words" name="search">
-						</form>
-					</div>
-					<div id="courseDropdown" class="col-3">
-						<div class="dropdown">
-						    <button class="dropdown-toggle" type="button" data-toggle="dropdown">Course<span class="caret"></span></button>
-						    <ul class="dropdown-menu">
-						      <li><a href="#">Main Course</a></li>
-						      <li><a href="#">Side Dish</a></li>
-						      <li><a href="#">Dessert</a></li>
-						      <li><a href="#">Appertizer</a></li>
-						    </ul>
+
+	  <a href="index.html">
+		  <img src="images/logo.svg" alt="figures logo" style="height: 50px; margin-left: 5px; margin-right: 5px;">
+	  </a>
+
+	  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+		  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			  <li class="nav-item">
+				  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="team.html">About</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="blog.html">Blog</a>
+			  </li>
+			  <li class="nav-item active">
+				  <a class="nav-link" href="docs.html">Documentation</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="reach.html" >Reach Us</a>
+			  </li>
+		  </ul>
+
+		  <!-- Button trigger modal -->
+
+		  <button class="btn btn-outline-light my-2 my-sm-0" data-toggle="modal" data-target="#downloadNow" onclick="location.href='download.html'">
+			  Download Now </button>
+
+
+	  </div>
+  </nav>
+
+
+  <div class="container-fluid">
+	  <div class="row">
+		  <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #F1ECE9; padding-top: 40px;">
+			  <div class="sidebar-sticky">
+				  <a class="nav-link"  style="color:#424a51;" href="#" >
+					  Documentation
+				  </a>
+				  <ul class="nav flex-column " id="theTeam" style="padding-left: 20px; font-size: 90%;">
+					  <li class="nav-item" >
+						  <a class="nav-link"   href="#download">
+							  Download
+						  </a>
+					  </li>
+					  <li class="nav-item" >
+						  <a class="nav-link"   href="#userGuide">
+							  User Guide
+						  </a>
+					  </li>
+				  </ul>
+
+				  </ul>
+			  </div>
+		  </nav>
+
+		  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="top: 30px; ">
+
+			  <a name="download"></a>
+			  <h1>Documentation</h1>
+
+			  <p>This documentation is all about quickly and effectively setting you up so you can be on your way!</p>
+
+			  <br><br>
+
+
+			  <hr class="featurette-divider" style="margin-top: 50px;">
+
+			  <div class="standard">
+				  <a name="ui"></a>
+				  <div class="row featurette">
+					  <div class="col-md-7">
+
+						  <h2 class="featurette-heading">Download. </h2>
+						  <br>
+						  <p > Download your copy of the software today! Installation instructions and versions are all in the link below.
+						  </p>
+						  <button class="btn btn-outline-dark my-2 my-sm-0" data-toggle="modal" data-target="#downloadNow" onclick="location.href='download.html'">
+							  Download Now </button>
+
+					  </div>
+
+				  </div>
+
+
+				  <hr class="featurette-divider">
+				  <a name="tools"></a>
+				  <div class="row featurette">
+					  <div class="col-md-7 order-md-2">
+						  <h2 class="featurette-heading">User Guide.</h2>
+						  <br>
+						  <p>Download the user manual! This manual was built with love, sweat and care. We hope you enjoy the tool! because we had a lot of fun building it.
+						  </p>
+						  <a class="btn btn-outline-dark my-2 my-sm-0" target="_blank" href="User-Guide.pdf">
+							  Read Now! </a>
+					  </div>
+					  <div class="col-md-5">
+						  <img class="featurette-image img-fluid mx-auto " src="images/doodle1.png" alt="500x500" style="margin-top: 70px;"data-holder-rendered="true" >
+					  </div>
+				  </div>
+
+
+				  <!-- /END THE FEATURETTES -->
+
+				  <!-- FOOTER -->
+				  <hr>
+				  <footer class="container py-5">
+					  <div class="row">
+						  <div class="col-8">
+							  <p><h6><b>Figures</b><i> - We figured you needed us</i>
+							  </p>
+
 						  </div>
-					</div>
-					<div class="col-3">
-						<button class="btn">Search</button>
-					</div>
-				</div>
+						  <div class="col-4" style="font-size: 12px; ">
+							  <h6>Reach Us</h6>
+							  <i><b>address</b><br> University of Wollongong, Northfields Ave, Wollongong NS
+								  <br><br>
+								  <b>email</b> ec898@uowmail.edu.au
 
-				<hr>
 
-				<div id="dishGrid" class="row">
-					<figure>
-					    <img class="gridImg" src="images/toast.jpg" alt="toast">
-					    <figcaption>Toast</figcaption>
-					</figure>
-					<figure>
-					    <img class="gridImg" src="images/sourdough.jpg" alt="sourdough">
-					    <figcaption class="">Sourdough</figcaption>
-					</figure>
-					<figure>
-					    <img class="gridImg" src="images/bakedbrie.jpg" alt="bakedbrie">
-					    <figcaption>Baked brie</figcaption>
-					</figure>
-					<figure>
-					    <img class="gridImg" src="images/meatballs.jpg" alt="meatballs">
-					    <figcaption>Meatballs</figcaption>
-					</figure>
-					<figure>
-					    <img class="gridImg" src="images/icecream.jpg" alt="icecream">
-					    <figcaption>Icecream</figcaption>
-					</figure>
+						  </div>
+					  </div>
+				  </footer>
 
-					
-				</div>
-			</div>
+		  </main>
 
-		</div>
-	</div>
+
+	  </div>
+  </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -115,6 +187,16 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/menuView.js"></script>
+
+	<script>
+
+		$('.dropdown-menu a').click(function(){
+			$('#selected').text($(this).text());
+		});
+
+	</script>
 
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
