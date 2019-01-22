@@ -1,12 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
-	//TODO Lab 1 implement the data structure that will hold number of guest
-	// and selected dishes for the dinner menu
 
 	this.numberOfGuests = 1;
 	this.menu = [];
-
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
@@ -38,30 +34,22 @@ var DinnerModel = function() {
 		});
 	}
 
-
+	//Returns the total price of the passed dish (all the ingredients multiplied by number of guests).
 	this.getTotalDishPrice = function(id) {
 		var totalPrice = 0;
 		var dish = this.getDish(id);
-
 		for(key in dish.ingredients) {
 			totalPrice += dish.ingredients[key].price;
 		}
-
 		return totalPrice * this.numberOfGuests;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
-
 		this.menu.forEach(dish => {
 			totalPrice += this.getTotalDishPrice(dish);
 		});
-
-		// for(dish in this.menu) {
-		// 	totalPrice += this.getTotalDishPrice(menu[dish]);
-		// }
-
 		return totalPrice * this.numberOfGuests;
 	}
 
@@ -71,20 +59,9 @@ var DinnerModel = function() {
 		var sameType = this.menu.filter(dishId => {
 			return this.getDish(dishId).type == this.getDish(id).type;
 		});
-
 		sameType.forEach(dishId => {
 			this.removeDishFromMenu(dishId);
 		});
-
-
-		///////////
-		// var type = getDish(id).type;
-		// this.menu.forEach(dishId =>
-		// 	if(getDish(dishId) == type) {
-		// 		removeDishFromMenu(dishId);
-		// 	});
-		/////////
-
 		this.menu.push(id);
 	}
 
