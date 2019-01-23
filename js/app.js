@@ -4,7 +4,8 @@ $(function() {
 	
 	// And create the instance of ExampleView
 	// var exampleView = new ExampleView($("#exampleView"), model);
-	var sidebarView = new SidebarView($("#navbarNavDropdown"), model);
+	var sidebarView = new SidebarView($("#sidePanel"), model);
+	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#menuView"), model);
 
 	/**

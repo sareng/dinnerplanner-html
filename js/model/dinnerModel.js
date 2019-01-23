@@ -50,7 +50,7 @@ var DinnerModel = function() {
 		this.menu.forEach(dish => {
 			totalPrice += this.getTotalDishPrice(dish);
 		});
-		return totalPrice * this.numberOfGuests;
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
