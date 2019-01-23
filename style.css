@@ -53,31 +53,6 @@ figure {
 
 
 
-.feature {
-	padding: 15px 15px;
-}
-
-.feature .col {
-
-	background-color: white;
-	border-radius: 8px;
-	margin: 10px;
-	padding: 15px;
-	border: 1px #dcd7d4 solid;
-
-
-}
-
-.feature a {
-	position: absolute;
-	bottom: 17px;
-}
-.feature button  {
-	position: absolute;
-	bottom: 17px;
-}
-
-
 .standard img {
 	padding-top: 15px;
 }
@@ -130,8 +105,10 @@ figure {
 }
 
 #mealTotalCost {
-	text-align: right;
 	color: brown;
+}
+.sidePanel #mealTotalCost {
+	text-align: right;
 }
 
 .menu {
@@ -188,4 +165,9 @@ figure {
 
 #numberOfGuests {
 	font-size: 1.25rem;
+}
+
+.index {
+	text-align: center;
+	padding: 15px;
 }
