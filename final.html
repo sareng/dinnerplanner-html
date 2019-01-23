@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+	<link href="sidePanel.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+  <div class="row header">
+	  <div class="col-12"><H1>Dinner Planner</H1></div>
+
+  </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
+
+	  	<div class="navbar-brand">
+			  <span class="menu-collapsed">
+				  My Dinner
+			  </span>
+		  </div>
+
+	  		<span class="navbar-toggler " data-toggle="collapse">
+				<div class="col-12" id="mealTotalCost">
+				  0.00 SEK
+			  </div>
+			</span>
+		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+		  <ul class="navbar-nav">
+			  <li class="nav-item dropdown d-sm-block d-md-none">
+				  <div class="sidePanel">
+					  <div class="row">
+						  <div class="row subTitles">
+							  <div class="col-4">
+								  People
+							  </div>
+							  <div class="col-8">
+								  <form> <input type="number" name="numPeople" min="1" max="999" value="3">
+								  </form>
+							  </div>
+
+						  </div>
+					  </div>
+					  <div class="row mainTitles">
+						  <div class="col">
+							  Dishe Name
+						  </div>
+						  <div class="col">
+							  Cost
+						  </div>
+					  </div>
+					  <div class="row">
+						  <div class="col-9" id="dishName">
+
+						  </div>
+						  <div class="col-3" id="dishTotalCost">
+
+						  </div>
+					  </div>
+					  <div class="row">
+						  <div class="col-12" id="mealTotalCost">
+							  0.00 SEK
+						  </div>
+
+					  </div>
+				  </div>
+			  </li><!-- Smaller devices menu END -->
+
+		  </ul>
+	  </div>
+  </nav><!-- NavBar END -->
+
+
+  <div class="row" id="body-row">
+	  <!-- Sidebar -->
+
+
+	  <!-- MAIN -->
+	  <div class="col main">
+		  <div class="row">
+			  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				  <div class="row">
+					  <div class="col-12">
+						  <h3>FOOD TITLE</h3>
+					  </div>
+				  </div>
+				  <div class="row">
+					  <div class="col-12">
+						  <img src="images/toast.png" class="img-fluid rectImages" alt="Responsive image">
+					  </div>
+				  </div>
+				  <div class="row">
+					  <div class="col">
+						  <p class="text-justify"><br/>Ambitioni rmentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti
+						  </p>
+					  </div>
+				  </div>
+				  <br/>
+				  <br />
+			  </div>
+			  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ingredientCard">
+				  <div class="row">
+					  <div class="col-12">
+						  <h3>INGREDIENT FOR X PEOPLE</h3>
+					  </div>
+				  </div>
+				  <table class="table table-striped">
+					  <tbody>
+					  <tr >
+						  <th>23 g</th>
+						  <td>Mark</td>
+						  <td>SEK</td>
+						  <td>0.00</td>
+					  </tr>
+					  <tr>
+						  <th>2 kg</th>
+						  <td>Jacob</td>
+						  <td>SEK</td>
+						  <td>0.00</td>
+					  </tr>
+					  <tr>
+						  <th >1 tbls</th>
+						  <td>Larry</td>
+						  <td>SEK</td>
+						  <td>0.00</td>
+					  </tr>
+					  <tr id="#totalIngredientCost">
+						  <th></th>
+						  <td></td>
+						  <td>SEK</td>
+						  <td>0.00</td>
+					  </tr>
+					  </tbody>
+				  </table>
+				  <button type="button" class="btn">Back to Search</button>
+				  <button type="button" class="btn">Add to Menu</button>
+			  </div>
+
+		  </div>
+		  <div class="row">
+			  <div class="col">
+				  <div class="row">
+					  <div class="col-12">
+						  <h3>PREPARATION</h3>
+					  </div>
+				  </div>
+				  <div class="row">
+					  <div class="col-12">
+						  <p class="text-justify">
+							  Praesent tincidunt nunc nec dapibus ullamcorper. Ut pretium nunc sit amet pellentesque bibendum. Pellentesque non tempus erat. Donec sit amet dui mauris. Duis vulputate elit suscipit commodo fermentum. Aliquam volutpat maximus odio ac lacinia. Curabitur vehicula nec odio et faucibus. Suspendisse pharetra lectus eu ligula egestas ornare. Nunc molestie suscipit tellus, at dignissim erat blandit sed.
+
+							  Vestibulum eleifend tempor laoreet. Donec gravida dui sed dapibus consequat. Sed accumsan nulla id consectetur iaculis. Praesent aliquet tincidunt ante ut vestibulum. Duis sodales, eros mollis posuere tempus, eros velit eleifend diam, sed tempor ligula massa a massa. Ut urna justo, porttitor cursus diam at, tempor varius nibh. Nulla condimentum hendrerit varius. Praesent purus felis, pulvinar nec dictum vel, sagittis vel mauris. Duis porta condimentum nisl, ut mollis risus porttitor a.
+
+							  Suspendisse tortor lacus, malesuada non tortor et, aliquam auctor ligula. In ut ullamcorper elit. Donec sit amet luctus turpis, a luctus enim. Fusce nec diam luctus, ullamcorper nunc at, dapibus sem. Fusce urna diam, finibus ac lacus sed, tempor sollicitudin est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi rhoncus ipsum non orci pharetra hendrerit. Vestibulum blandit rutrum nibh, ac posuere dolor rutrum non.
+
+						  </p>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+
+	  </div>
+
+  </div><!-- body-row END -->
+
+  <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+  	<script src="js/view/exampleView.js"></script>
+ 	 <script src="js/view/menuView.js"></script>
+
+  </body>
+</html>
