@@ -15,15 +15,24 @@
 var  MenuView = function (container, model) {
 
 
-	var totalPrice = new DinnerModel().getDish(1);
-	var tt = 0;
+	var dish = new DinnerModel();
+	var cards = container.find('#dishCards');
 
-	console.log(totalPrice.ingredients[1].price);
+	var card = [];
 
-	for(key in totalPrice.ingredients) {
-		tt += totalPrice.ingredients[key].price;
-	}
-	console.log('total Price: ' + tt);
-	
+	dish.name{
+		card.push("<div class=\"col-xs-12 col-sm-12 col-md-3 col-lg-3\">",
+			"<div class=\"card text-center\">",
+			"<img id=\"dishImage\" class=\"card-img-top\" src=\"images/toast.png\" alt=\"Card image cap\">",
+			"<div class=\"card-body\">",
+			"<h5 class=\"card-title\" id=\"dishTitle\">Card title</h5>",
+			"</div>",
+			"</div>",
+			"</div>";
+	});
+
+	cards.html("<tbody>" + table.join("") + "<tr><th></th><td></td><td>SEK</td><td>" + model.getTotalDishPrice(id) + "</td></tr>");
+
+
 }
  

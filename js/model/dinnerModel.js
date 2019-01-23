@@ -114,7 +114,7 @@ var DinnerModel = function() {
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
-		'image':'toast.jpg',
+		'image':'toast.png',
 		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
 		'ingredients':[{ 
 			'name':'eggs',
