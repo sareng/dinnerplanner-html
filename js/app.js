@@ -3,7 +3,8 @@ $(function() {
 	var model = new DinnerModel();
 	
 	// And create the instance of ExampleView
-	var exampleView = new ExampleView($("#exampleView"), model);
+	// var exampleView = new ExampleView($("#exampleView"), model);
+	var sidebarView = new SidebarView($("#navbarNavDropdown"), model);
 	var menuView = new MenuView($("#menuView"), model);
 
 	/**
