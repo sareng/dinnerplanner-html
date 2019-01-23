@@ -70,9 +70,8 @@ var DinnerModel = function() {
 		this.menu.splice(this.menu.indexOf(id),1);
 	}
 
-	//returns all dishes
+	//returns all dishes, no type needed
 	this.getAllDishesAllTypes = function () {
-		console.log("in function: " + dishes);
 		return dishes;
 	}
 
