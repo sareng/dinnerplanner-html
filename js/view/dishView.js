@@ -13,10 +13,7 @@ var DishView = function (container, model) {
 
 	var ingrTable = container.find('#ingredientTable');
 
-
-
 	var table = [];
-
 	dish.ingredients.forEach(ingredient => {
 		table.push("<tr>",
 		"<th>",ingredient.quantity," ",ingredient.unit,"</th>",
@@ -25,8 +22,5 @@ var DishView = function (container, model) {
 		"<td>",ingredient.price,"</td>",
 		"</tr>");
 	});
-
 	ingrTable.html("<tbody>" + table.join("") + "<tr><th></th><td></td><td>SEK</td><td>" + model.getTotalDishPrice(id) + "</td></tr>");
-
-
 }
