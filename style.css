@@ -25,19 +25,8 @@ figure {
 	border:1px solid #404040;
 	background-color: #e6e6e6;
 }
-.gridImg {
-	border:2px solid #555555;
 
-}
-.prices {
-	color:darkred;
-}
-.row {
-	padding:10px;
-}
-#header {
-	background-color: #e6e6e6;
-}
+
 #newDinner {
 	margin:20px;
 }
@@ -46,11 +35,119 @@ figure {
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
-#sidepanel {
-	border:1px solid #666666;
-	height:100%;
+
+.content {
+	top: 80px;
 }
-#sidepanelDishHdr {
-	border:1px solid #404040;
-	background-color: #cccccc
+.content p {
+	font-size: 14px;
+
+}
+
+.vertical-center {
+	min-height: 100%;
+
+	display: flex;
+	align-items: center;
+}
+
+
+
+.feature {
+	padding: 15px 15px;
+}
+
+.feature .col {
+
+	background-color: white;
+	border-radius: 8px;
+	margin: 10px;
+	padding: 15px;
+	border: 1px #dcd7d4 solid;
+
+
+}
+
+.feature a {
+	position: absolute;
+	bottom: 17px;
+}
+.feature button  {
+	position: absolute;
+	bottom: 17px;
+}
+
+
+.standard img {
+	padding-top: 15px;
+}
+
+
+.main-container {
+
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+
+/*
+ * Main class -> for the all content
+ */
+
+.main {
+	padding-top: 15px;
+}
+.header {
+	text-align: center;
+	colour: black;
+	background-color: #f4f4f4;
+
+}
+
+.sidePanel {
+	background-color: #f8f9fa;
+}
+
+
+.topMenu {
+	border-bottom: 2px solid #bcbcbc;
+	border-top: 2px solid #bcbcbc;
+}
+.sidePanel .subTitles {
+	padding: 10px;
+}
+
+.sidePanel .mainTitles {
+	padding: 10px;
+	border: 2px solid #bcbcbc;
+	background-color: #d3d3d3;
+	padding: 10px;
+	text-align: center;
+}
+
+.sidePanel .row {
+	padding: 10px;
+}
+
+#mealTotalCost {
+	text-align: right;
+	color: brown;
+}
+
+.menu {
+	padding-top: 10px;
+}
+
+.menu .card {
+	margin-top: 10px;
+}
+
+.sidePanel .button {
+	text-align: center;
+}
+
+
+.sidePanel .selectedDish {
+	background-color: #cccccc;
+
 }
