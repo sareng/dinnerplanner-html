@@ -2,7 +2,7 @@
 var DishView = function (container, model) {
 
 	container.find('#mealTotalCost').html(model.getTotalMenuPrice() + " SEK");
-	container.find('#ingrHdr').html("INGREDIENTS FOR " + model.numberOfGuests + " PEOPLE");
+	container.find('#ingrHdr').html("INGREDIENTS FOR " + model.getNumberOfGuests() + " PEOPLE");
 
 	// temporarily set an id to show
 	var id = 1;
