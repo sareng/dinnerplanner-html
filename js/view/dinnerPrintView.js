@@ -1,13 +1,41 @@
 
 var DinnerPrintView = function (container, model) {
 
-	content = 	
-		"<div class=\"row \">" + "<div class=\"col-3\"></div>"+ "<div class=\"col-6 index\">"+
-				"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis fermentum lectus et maximus. Sed gravida dignissim quam, consectetur facilisis nisi faucibus quis. Nunc non purus pharetra, suscipit sem eu, hendrerit magna. Integer in pellentesque lacus. Nulla lectus ante, lobortis at posuere at, elementum vel quam. Integer eu gravida leo. hasellus vitae ex non elit ultricies scelerisque a ut dui. Mauris auctor vulputate placerat.</p>" +
-				"<br />" + 
-				"<button type=\"button\" class=\"btn\">Create New Dinner</button>" +
-			"</div>" + 
-		"</div>";
+	var guests = model.getNumberOfGuests();
+	var menu = model.getFullMenu();
 
-	container.html(content);
+	var dishViews = [];
+
+	menu.forEach(dish => {
+		dishViews.push(DishPrintView(model, dish));
+		dishViews.push("</hr>");
+	});
+
+	dishView = dishViews.join("");
+
+	var content = 
+	`<nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
+		<div class="navbar-brand">
+		</div>
+		<div id="numberOfGuests" class="col-4">: ${guests} people</div>
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<button class="btn  my-2 my-lg-0">Go back and edit dinner</button>
+				</ul>
+			</div>
+		</nav><!-- NavBar END -->`; 
+
+	var dishes = 
+	`<div class="row" id="body-row">
+		<!-- Sidebar -->
+		<!-- MAIN -->
+		<div class="col main">
+			${dishView}
+		</div>
+	</div><!-- body-row END -->`;
+
+	container.html(content + dishes);
 }

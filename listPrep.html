@@ -19,90 +19,7 @@
 	  <div class="col-12"><H1>Dinner Planner</H1></div>
 
   </div>
-  <nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
-
-
-			  <div class="navbar-brand">
-			  <span class="menu-collapsed">
-				  My Dinner
-			  </span>
-			  </div>
-
-		  <div id="numberOfGuests" class="col-4">: 3 people</div>
-
-		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-		  </button>
-
-
-	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-		  <ul class="navbar-nav">
-			  <button class="btn  my-2 my-lg-0">
-				  Go back and edit dinner</button>
-		  </ul>
-	  </div>
-  </nav><!-- NavBar END -->
-
-
-  <div class="row" id="body-row">
-	  <!-- Sidebar -->
-
-
-	  <!-- MAIN -->
-	  <div class="col main">
-		  <div class="row">
-
-				  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					  <img src="images/toast.png" class="img-fluid rectImages" alt="Responsive image">
-				  </div>
-				  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					  <div class="col-12">
-						  <h3>FOOD TITLE</h3>
-					  </div>
-					  <div class="col-12">
-						  <p class="text-justify"><br/>Ambitioni rmentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti
-						  </p>
-					  </div>
-				  </div>
-				  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-					  <div class="col-12">
-						  <h4>Preparation</h4>
-					  </div>
-					  <div class="col">
-						  <p class="text-justify"><br/>Vestibulum eleifend tempor laoreet. Donec gravida dui sed dapibus consequat. Sed accumsan nulla id consectetur iaculis. Praesent aliquet tincidunt ante ut vestibulum. Duis sodales, eros mollis posuere tempus, eros velit eleifend diam, sed tempor ligula massa a massa. Ut urna justo, porttitor cursus diam at, tempor varius nibh. Nulla condimentum hendrerit varius. Praesent purus felis, pulvinar nec dictum vel, sagittis vel mauris. Duis porta condimentum nisl, ut mollis risus porttitor a.
-						  </p>
-					  </div>
-				  </div>
-		  </div>
-		  <hr/>
-		  <div class="row">
-
-			  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				  <img src="images/toast.png" class="img-fluid rectImages" alt="Responsive image">
-			  </div>
-			  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-				  <div class="col-12">
-					  <h3>FOOD TITLE</h3>
-				  </div>
-				  <div class="col-12">
-					  <p class="text-justify"><br/>Ambitioni rmentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti
-					  </p>
-				  </div>
-			  </div>
-			  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-				  <div class="col-12">
-					  <h4>Preparation</h4>
-				  </div>
-				  <div class="col">
-					  <p class="text-justify"><br/>Vestibulum eleifend tempor laoreet. Donec gravida dui sed dapibus consequat. Sed accumsan nulla id consectetur iaculis. Praesent aliquet tincidunt ante ut vestibulum. Duis sodales, eros mollis posuere tempus, eros velit eleifend diam, sed tempor ligula massa a massa. Ut urna justo, porttitor cursus diam at, tempor varius nibh. Nulla condimentum hendrerit varius. Praesent purus felis, pulvinar nec dictum vel, sagittis vel mauris. Duis porta condimentum nisl, ut mollis risus porttitor a.
-					  </p>
-				  </div>
-			  </div>
-		  </div>
-	  </div>
-
-  </div><!-- body-row END -->
+  <div id="dinnerPrintView"> </div>
 
   <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -121,8 +38,11 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-  	<script src="js/view/exampleView.js"></script>
- 	 <script src="js/view/menuView.js"></script>
+	<script src="js/view/dishPrintView.js"></script>
+	<script src="js/view/dinnerPrintView.js"></script>
+ 	<script src="js/view/menuView.js"></script>
+ 	<script src="js/view/startView.js"></script>
+ 	<script src="js/view/sidebarView.js"></script>
 
   </body>
 </html>
