@@ -3,13 +3,9 @@ $(function() {
 	var model = new DinnerModel();
 	
 	var startView = new StartView($("#startView"), model);
-<<<<<<< HEAD
 	var sidePanelView = new SidePanelView($(".sidePanel"), model);
-=======
 	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
 	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
-	var sidebarView = new SidebarView($("#sidePanel"), model);
->>>>>>> fd29b3222d123a6738abada7e87463e119654d51
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#dishCard"), model);
 
