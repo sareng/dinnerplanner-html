@@ -3,7 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 	
 	var startView = new StartView($("#startView"), model);
-	var sidebarView = new SidebarView($("#sidePanel"), model);
+	var sidePanelView = new SidePanelView($(".sidePanel"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#dishCard"), model);
 	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
