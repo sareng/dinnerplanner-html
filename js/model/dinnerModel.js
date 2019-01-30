@@ -1,8 +1,13 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
+<<<<<<< HEAD
 	this.numberOfGuests = 10;
 	this.menu = [];
+=======
+	this.numberOfGuests = 1;
+	this.menu = [1,101];
+>>>>>>> fd29b3222d123a6738abada7e87463e119654d51
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;

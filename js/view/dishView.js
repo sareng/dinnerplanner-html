@@ -4,7 +4,7 @@ var DishView = function (container, model) {
 	container.find('#mealTotalCost').html(model.getTotalMenuPrice() + " SEK");
 	container.find('#ingrHdr').html("INGREDIENTS FOR " + model.getNumberOfGuests() + " PEOPLE");
 
-	// temporarily set an id to show
+	// temporarily set an id to show for testing
 	var id = 1;
 
 	var dish = model.getDish(id);
