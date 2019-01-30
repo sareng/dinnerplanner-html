@@ -17,7 +17,7 @@ var DinnerPrintView = function (container, model) {
 	`<nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
 		<div class="navbar-brand">
 		</div>
-		<div id="numberOfGuests" class="col-4">: ${guests} people</div>
+		<div id="numberOfGuests" class="col-4">My dinner: ${guests} people</div>
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
