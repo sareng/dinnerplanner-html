@@ -3,11 +3,13 @@ $(function() {
 	var model = new DinnerModel();
 	
 	var startView = new StartView($("#startView"), model);
+	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
+	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
 	var sidebarView = new SidebarView($("#sidePanel"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#dishCard"), model);
-	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
-	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
+
+	//var dishPrintView = new DishPrintView($("#dishPrintView"), model);
 
 
 	/**
