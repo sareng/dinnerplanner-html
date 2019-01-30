@@ -5,7 +5,7 @@ $(function() {
 	var startView = new StartView($("#startView"), model);
 	var sidePanelView = new SidePanelView($(".sidePanel"), model);
 	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
-	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
+	var dinnerSummaryView = new DinnerSummaryView($(".dinnerSummaryView"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var menuView = new MenuView($("#dishCard"), model);
 
