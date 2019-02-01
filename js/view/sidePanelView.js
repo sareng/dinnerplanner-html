@@ -17,8 +17,8 @@ var SidePanelView = function (container, model) {
         "<div class=\"row\"><div class=\"col-12\" id=\"mealTotalCost\">" + totalCost + "</div></div>" +
         "<div class=\"row\"><div class=\"col\"><button type=\"button\" class=\"btn\" disabled>Confirm Dinner</button></div></div></ul>";
 
-    console.log(numPeopleSide);
-    console.log(totalCost);
+    // console.log(numPeopleSide);
+    // console.log(totalCost);
 
     container.html(content);
 };

@@ -3,6 +3,7 @@ var DinnerModel = function() {
 
 	this.numberOfGuests = 1;
 	this.menu = [1,101];
+	this.currentDish = 1;
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
@@ -10,6 +11,14 @@ var DinnerModel = function() {
 	
 	this.getNumberOfGuests = function() {
 		return this.numberOfGuests;
+	}
+
+	this.setCurrentDish = function(id) {
+		this.currentDish = id;
+	}
+
+	this.getCurrentDish = function() {
+		return this.currentDish;
 	}
 
 	//Returns the dish that is on the menu for selected type 
