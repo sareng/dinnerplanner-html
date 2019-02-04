@@ -13,8 +13,9 @@ var DinnerModel = function() {
 //.... other model data and code calling notifyObservers() when the model changes
 
 	this.numberOfGuests = 1;
-	this.menu = [1,101];
 	this.currentDish = 1;
+	this.menu = [1,101];
+	this.dishTypes = ["All", "Main Course", "Side Dish", "Appetizer", "Dessert"];
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
@@ -30,6 +31,18 @@ var DinnerModel = function() {
 
 	this.getCurrentDish = function() {
 		return this.currentDish;
+	}
+
+	this.addDishType = function(type) {
+		this.dishTypes.push(type);
+	}
+
+	this.removeDishType = function(type) {
+		this.dishTypes.splice(this.dishTypes.indexOf(type),1);
+	}
+
+	this.getDishTypes = function() {
+		return this.dishTypes;
 	}
 
 	//Returns the dish that is on the menu for selected type 
