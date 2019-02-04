@@ -18,6 +18,7 @@ $(function() {
 
 	// initialize controllers
 	var startController = new StartController(this, startView, model);
+	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
 
 
 	this.hideStartView = function() {
@@ -76,52 +77,22 @@ $(function() {
 	this.initiatePage = function() {
 		this.hideAllViews();
 		this.showStartView();
-		// // hideSidePanelView();
-		// // hideSelectDish();
-		// this.hideSelectDishView();
-		// this.hideSelectDishListView();
-	 // 	this.hideDishView();
-	 // 	this.hideMenuView();
-	 // 	this.hideDinnerPrintView();
-	 // 	this.hideDinnerSummaryView();
 	 }
 
-	// window.onload = initiatePage;
-
-
-
-	// startbtn = document.getElementById("startButton");
-	// var startListener = function(evt){
-	//  	hideStartView();
-	//  	showSelectDishView();
-	//  	showSelectDishListView();
-	//  	addCardEventListeners();
-	// }
-	// startbtn.addEventListener("click", startListener , false);
 
 	this.showSelectDishPage = function() {
 		this.hideStartView();
 	 	this.showSelectDishView();
 	 	this.showSelectDishListView();
-	 	this.addCardEventListeners();
 	}	
 
-	this.addCardEventListeners = function() {
-		var root = document.getElementById("selectDishListView");
-		var cards = root.getElementsByClassName("card");
-
-		var cardListener = function(evt){
-			hideSelectDishView();
-			hideSelectDishListView();
-			model.setCurrentDish(evt.currentTarget.id.slice(4)); // slice to remove "dish" from id
+	this.showDishInfoPage = function() {
+		this.hideSelectDishView();
+		this.hideSelectDishListView();
 			// TODO get view to update to use new id
-			showDishView();
-		}
-
-		Array.from(cards).forEach(card => {
-	      card.addEventListener('click', cardListener, false);
-	    });
+		this.showDishView();
 	}
+
 
 	this.initiatePage();
 	
