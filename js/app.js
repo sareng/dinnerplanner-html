@@ -2,6 +2,7 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 	
+	// initialize views
 	var startView = new StartView($("#startView"), model);
 	var sidePanelView = new SidePanelView($(".sidePanel"), model);
 	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
@@ -15,69 +16,97 @@ $(function() {
 	//var dishPrintView = new DishPrintView($("#dishPrintView"), model);
 
 
-	var hideStartView = function() {
+	// initialize controllers
+	var startController = new StartController(this, startView, model);
+
+
+	this.hideStartView = function() {
 		document.getElementById("startView").style.display = "none";
 	}
 	// var hideSidePanelView = function() {
 	// 	document.getElementById("sidePanel").style.display = "none";
 	// }
-	var hideSelectDish = function() {
+	this.hideSelectDish = function() {
 		document.getElementById("body-row").style.display = "none";
 	}
-	var hideSelectDishView = function() {
+	this.hideSelectDishView = function() {
 		document.getElementById("selectDishView").style.display = "none";
 	}
-	var hideSelectDishListView = function() {
+	this.hideSelectDishListView = function() {
 		document.getElementById("selectDishListView").style.display = "none";
 	}
-	var hideDinnerPrintView = function() {
+	this.hideDinnerPrintView = function() {
 		document.getElementById("dinnerPrintView").style.display = "none";
 	}
-	var hideDinnerSummaryView = function() {
+	this.hideDinnerSummaryView = function() {
 		document.getElementById("dinnerSummaryView").style.display = "none";
 	}
-	var hideDishView = function() {
+	this.hideDishView = function() {
 		document.getElementById("dishView").style.display = "none";
 	}
-	var hideMenuView = function() {
+	this.hideMenuView = function() {
 		document.getElementById("menuView").style.display = "none";
 	}
-	var showSelectDishView = function() {
-		document.getElementById("selectDishView").style.display = "block";
+
+	this.showStartView = function() {
+		document.getElementById("startView").style.display = "";
 	}
-	var showSelectDishListView = function() {
-		document.getElementById("selectDishListView").style.display = "block";
+	this.showSelectDishView = function() {
+		document.getElementById("selectDishView").style.display = "";
 	}
-	var showDishView = function() {
-		document.getElementById("dishView").style.display = "block";
+	this.showSelectDishListView = function() {
+		document.getElementById("selectDishListView").style.display = "";
+	}
+	this.showDishView = function() {
+		document.getElementById("dishView").style.display = "";
 	}
 
-	var initiatePage = function() {
+	this.hideAllViews = function() {
 		// hideSidePanelView();
 		// hideSelectDish();
-		hideSelectDishView();
-		hideSelectDishListView();
-	 	hideDishView();
-	 	hideMenuView();
-	 	hideDinnerPrintView();
-	 	hideDinnerSummaryView();
+		this.hideSelectDishView();
+		this.hideSelectDishListView();
+	 	this.hideDishView();
+	 	this.hideMenuView();
+	 	this.hideDinnerPrintView();
+	 	this.hideDinnerSummaryView();
+	 	this.hideStartView();
+	}
+
+	this.initiatePage = function() {
+		this.hideAllViews();
+		this.showStartView();
+		// // hideSidePanelView();
+		// // hideSelectDish();
+		// this.hideSelectDishView();
+		// this.hideSelectDishListView();
+	 // 	this.hideDishView();
+	 // 	this.hideMenuView();
+	 // 	this.hideDinnerPrintView();
+	 // 	this.hideDinnerSummaryView();
 	 }
 
-	window.onload = initiatePage;
+	// window.onload = initiatePage;
 
 
 
-	startbtn = document.getElementById("startButton");
-	var startListener = function(evt){
-	 	hideStartView();
-	 	showSelectDishView();
-	 	showSelectDishListView();
-	 	addCardEventListeners();
-	}
-	startbtn.addEventListener("click", startListener , false);
+	// startbtn = document.getElementById("startButton");
+	// var startListener = function(evt){
+	//  	hideStartView();
+	//  	showSelectDishView();
+	//  	showSelectDishListView();
+	//  	addCardEventListeners();
+	// }
+	// startbtn.addEventListener("click", startListener , false);
 
+	this.showSelectDishPage = function() {
+		this.hideStartView();
+	 	this.showSelectDishView();
+	 	this.showSelectDishListView();
+	 	this.addCardEventListeners();
+	}	
 
-	var addCardEventListeners = function() {
+	this.addCardEventListeners = function() {
 		var root = document.getElementById("selectDishListView");
 		var cards = root.getElementsByClassName("card");
 
@@ -93,6 +122,8 @@ $(function() {
 	      card.addEventListener('click', cardListener, false);
 	    });
 	}
+
+	this.initiatePage();
 	
 
 });
