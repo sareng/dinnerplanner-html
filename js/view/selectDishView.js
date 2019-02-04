@@ -7,6 +7,12 @@ var SelectDishView = function (container, model) {
 	} 
 	model.addObserver(this.update);
 
+	this.update = function(model, changeDetails){
+	     // redraw just the portion affected by the changeDetails
+	     // or remove all graphics in the view, read the whole model and redraw 
+	} 
+	model.addObserver(this.update);
+
 	var options = ["Main Course", "Side Dish", "Appetiser", "Dessert"];
 	var optionsHtml = [];
 
