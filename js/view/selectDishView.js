@@ -13,11 +13,11 @@ var SelectDishView = function (container, model) {
 	} 
 	model.addObserver(this.update);
 
-	var options = ["Main Course", "Side Dish", "Appetiser", "Dessert"];
-	var optionsHtml = [];
+	var dishTypes = model.getDishTypes();
+	var dishTypesHtml = [];
 
-	options.forEach(option => {
-		optionsHtml.push(`<option> ${option} </option>`);
+	dishTypesHtml.forEach(dishType => {
+		dishTypesHtml.push(`<option> ${dishType} </option>`);
 	});
 
 	var content = 	
@@ -32,7 +32,7 @@ var SelectDishView = function (container, model) {
 				<form>
 					<div class="form-group">
 						<select class="form-control" id="exampleFormControlSelect1">
-							${optionsHtml.join("")}
+							${dishTypesHtml.join("")}
 						</select>
 					</div>
 				</form>
