@@ -59,8 +59,8 @@ var DishView = function (container, model) {
 			<table id="ingredientTable" class="table table-striped">
 				<tbody>${table.join("")} <tr><th></th><td></td><td>SEK</td><td> ${model.getTotalDishPrice(id)} </td></tr>
 			</table>
-			<button type="button" class="btn">Back to Search</button>
-			<button type="button" class="btn">Add to Menu</button>
+			<button id="dishBackButton" type="button" class="btn">Back to Search</button>
+			<button id="addDishButton" type="button" class="btn">Add to Menu</button>
 		</div>`;
 
 	var prep = 		  
