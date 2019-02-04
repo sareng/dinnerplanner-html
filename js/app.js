@@ -19,7 +19,7 @@ $(function() {
 	// initialize controllers
 	var startController = new StartController(this, startView, model);
 	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
-
+	var dishController = new DishController(this, dishView, model);
 
 	this.hideStartView = function() {
 		document.getElementById("startView").style.display = "none";
@@ -81,7 +81,7 @@ $(function() {
 
 
 	this.showSelectDishPage = function() {
-		this.hideStartView();
+		this.hideAllViews();
 	 	this.showSelectDishView();
 	 	this.showSelectDishListView();
 	}	
