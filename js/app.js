@@ -10,6 +10,10 @@ $(function() {
 	var dishView = new DishView($("#dishView"), model);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var menuView = new MenuView($("#selectDishListView"), model);
+	var topMenuStandardView = new TopMenuStandardView ($(".menuStandard"), model);
+	var topMenuSummary = new TopMenuSummaryView ($(".menuSummary"), model);
+
+
 	// var menuView = new MenuView($("#dishCard"), model);
 	//var topView = new topView($(".topMenu"), model);
 

@@ -19,4 +19,15 @@ var SelectDishListController = function(genController, view, model) {
 	}
 	addCardEventListeners();
 
+	backbtn = document.getElementById("dishBackButton"); // prob change from searchin
+	var backListener = function(evt){
+		genController.showSelectDishPage();
+	}
+	startbtn.addEventListener("click", startListener , false);
+
+
+
+
+
+
 }
