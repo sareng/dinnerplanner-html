@@ -95,7 +95,8 @@ figure {
 
 .sidePanel .mainTitles {
 	padding: 10px;
-	border: 2px solid #bcbcbc;
+	border-top: 2px solid #bcbcbc;
+	border-bottom: 2px solid #bcbcbc;
 	background-color: #d3d3d3;
 	padding: 10px;
 	text-align: center;
