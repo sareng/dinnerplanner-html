@@ -81,12 +81,13 @@ figure {
 
 .sidePanel {
 	background-color: #f8f9fa;
+
 }
 
 
 .topMenu {
-	border-bottom: 2px solid #bcbcbc;
-	border-top: 2px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc;
+	border-top: 1px solid #bcbcbc;
 }
 .sidePanel .subTitles {
 	padding: 10px;

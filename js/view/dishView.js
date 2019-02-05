@@ -80,9 +80,6 @@ var DishView = function (container, model) {
 		</div>`;
 
 
-	// var html ="<div class=\"row\">" + foodInfo + ingredientList +  "</div>";
-
-
 	container.html("<div class=\"row\">" + foodInfo + ingredientList +  "</div>");
 
 }

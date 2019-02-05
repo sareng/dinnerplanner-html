@@ -4,14 +4,14 @@ $(function() {
 	
 	// initialize views
 	var startView = new StartView($("#startView"), model);
-	var sidePanelView = new SidePanelView($(".sidePanel"), model);
+	var sidePanelView = new SidePanelView($("#sidePanel"), model);
 	var dinnerPrintView = new DinnerPrintView($("#dinnerPrintView"), model);
 	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var menuView = new MenuView($("#selectDishListView"), model);
-	var topMenuStandardView = new TopMenuStandardView ($(".menuStandard"), model);
-	var topMenuSummary = new TopMenuSummaryView ($(".menuSummary"), model);
+	var topMenuStandardView = new TopMenuStandardView ($("#menuStandard"), model);
+	var topMenuSummary = new TopMenuSummaryView ($("#menuSummary"), model);
 
 
 	// var menuView = new MenuView($("#dishCard"), model);
@@ -37,6 +37,7 @@ $(function() {
 	}
 	this.hideSelectDishView = function() {
 		document.getElementById("selectDishView").style.display = "none";
+		document.getElementById("sd").style.display = "none";
 	}
 	this.hideSelectDishListView = function() {
 		document.getElementById("selectDishListView").style.display = "none";
@@ -59,6 +60,7 @@ $(function() {
 	}
 	this.showSelectDishView = function() {
 		document.getElementById("selectDishView").style.display = "";
+		document.getElementById("sd").style.display = "";
 	}
 	this.showSelectDishListView = function() {
 		document.getElementById("selectDishListView").style.display = "";
@@ -68,6 +70,20 @@ $(function() {
 	}
 	this.showDinnerPrintView = function() {
 		document.getElementById("dinnerPrintView").style.display = "";
+	}
+
+	this.showSidePanelView = function() {
+		document.getElementById("sidePanel").style.display = "";
+	}
+	this.hideSidePanelView = function() {
+		document.getElementById("sidePanel").style.display = "none";
+	}
+
+	this.showTopMenu = function() {
+		document.getElementById("menuStandard").style.display = "";
+	}
+	this.hideTopMenu = function() {
+		document.getElementById("menuStandard").style.display = "none";
 	}
 
 	this.hideAllViews = function() {
@@ -80,6 +96,8 @@ $(function() {
 	 	this.hideDinnerPrintView();
 	 	this.hideDinnerSummaryView();
 	 	this.hideStartView();
+	 	this.hideSidePanelView();
+	 	this.hideTopMenu();
 	}
 
 	this.initiatePage = function() {
@@ -92,6 +110,8 @@ $(function() {
 		this.hideAllViews();
 	 	this.showSelectDishView();
 	 	this.showSelectDishListView();
+	 	this.showSidePanelView();
+	 	this.showTopMenu();
 	}	
 
 	this.showDishInfoPage = function() {

@@ -5,7 +5,7 @@ var TopMenuStandardView = function (container, model) {
     var numPeopleSide = '"' + model.getNumberOfGuests() + '"';
     var totalCost = model.getTotalMenuPrice() + " SEK";
 
-    content = " <nav class=\"navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu\" >\n" +
+    content = " <nav class=\"navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu\" id=\"menuStandard\" >" +
         "<div class=\"navbar-brand\">" +
         "<span class=\"menu-collapsed\">" +
         "My Dinner" +
