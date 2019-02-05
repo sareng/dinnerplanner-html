@@ -1,5 +1,10 @@
 
 var  MenuView = function (container, model) {
+	this.update = function(model, changeDetails){
+	     // redraw just the portion affected by the changeDetails
+	     // or remove all graphics in the view, read the whole model and redraw 
+	} 
+	model.addObserver(this.update);
 
 	// load dishes from the model to search dish view
 	var allDishes = model.getAllDishesAllTypes();

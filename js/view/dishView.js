@@ -1,5 +1,10 @@
 
 var DishView = function (container, model) {
+	this.update = function(model, changeDetails){
+	     // redraw just the portion affected by the changeDetails
+	     // or remove all graphics in the view, read the whole model and redraw 
+	} 
+	model.addObserver(this.update);
 
 	container.find('#mealTotalCost').html(model.getTotalMenuPrice() + " SEK");
 	// container.find('#ingrHdr').html("INGREDIENTS FOR " + model.getNumberOfGuests() + " PEOPLE");

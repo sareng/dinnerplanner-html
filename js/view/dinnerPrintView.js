@@ -1,5 +1,10 @@
 
 var DinnerPrintView = function (container, model) {
+	this.update = function(model, changeDetails){
+	     // redraw just the portion affected by the changeDetails
+	     // or remove all graphics in the view, read the whole model and redraw 
+	} 
+	model.addObserver(this.update);
 
 	var guests = model.getNumberOfGuests();
 	var menu = model.getFullMenu();
@@ -23,7 +28,7 @@ var DinnerPrintView = function (container, model) {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<button class="btn  my-2 my-lg-0">Go back and edit dinner</button>
+					<button id="backButton" class="btn  my-2 my-lg-0">Go back and edit dinner</button>
 				</ul>
 			</div>
 		</nav><!-- NavBar END -->`; 

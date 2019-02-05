@@ -22,9 +22,11 @@ $(function() {
 
 	// initialize controllers
 	var startController = new StartController(this, startView, model);
+	var sidePanelController = new SidePanelController(this, sidePanelView, model);
 	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
 	var dishController = new DishController(this, dishView, model);
 	var dinnerSummaryController = new DinnerSummaryController(this, dinnerSummaryView, model);
+	var dinnerPrintController = new DinnerPrintController(this, dinnerPrintView, model);
 
 	this.hideStartView = function() {
 		document.getElementById("startView").style.display = "none";
@@ -67,6 +69,9 @@ $(function() {
 	}
 	this.showDishView = function() {
 		document.getElementById("dishView").style.display = "";
+	}
+	this.showDinnerSummaryView = function() {
+		document.getElementById("dinnerSummaryView").style.display = "";
 	}
 	this.showDinnerPrintView = function() {
 		document.getElementById("dinnerPrintView").style.display = "";
@@ -119,6 +124,11 @@ $(function() {
 		this.hideSelectDishListView();
 			// TODO get view to update to use new id
 		this.showDishView();
+	}
+
+	this.showDinnerSummaryPage = function() {
+		this.hideAllViews();
+		this.showDinnerSummaryView();
 	}
 
 	this.showPrintPage = function() {

@@ -19,6 +19,7 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
+		this.notifyObservers(this.numberOfGuests);
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -27,6 +28,7 @@ var DinnerModel = function() {
 
 	this.setCurrentDish = function(id) {
 		this.currentDish = id;
+		this.notifyObservers(this.currentDish);
 	}
 
 	this.getCurrentDish = function() {
@@ -35,10 +37,12 @@ var DinnerModel = function() {
 
 	this.addDishType = function(type) {
 		this.dishTypes.push(type);
+		this.notifyObservers({dishType:this.dishTypes});
 	}
 
 	this.removeDishType = function(type) {
 		this.dishTypes.splice(this.dishTypes.indexOf(type),1);
+		this.notifyObservers(this.dishTypes);
 	}
 
 	this.getDishTypes = function() {
@@ -97,11 +101,13 @@ var DinnerModel = function() {
 			this.removeDishFromMenu(dishId);
 		});
 		this.menu.push(id);
+		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		this.menu.splice(this.menu.indexOf(id),1);
+		this.notifyObservers(this.getFullMenu());
 	}
 
 	//returns all dishes, no type needed

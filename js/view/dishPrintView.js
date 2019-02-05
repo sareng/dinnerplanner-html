@@ -1,4 +1,9 @@
 var DishPrintView = function (model, dish) { //container, 
+	this.update = function(model, changeDetails){
+	     // redraw just the portion affected by the changeDetails
+	     // or remove all graphics in the view, read the whole model and redraw 
+	} 
+	model.addObserver(this.update);
 
 	var name = dish.name;
 	var prep = dish.description;

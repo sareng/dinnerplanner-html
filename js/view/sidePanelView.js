@@ -1,6 +1,14 @@
 
 var SidePanelView = function (container, model) {
+    this.update = function(model, changeDetails){
+        // console.log("cd: " + changeDetails.changeType);
+        if(changeDetails.changeType == menu) {
 
+        }
+         // redraw just the portion affected by the changeDetails
+         // or remove all graphics in the view, read the whole model and redraw 
+    } 
+    model.addObserver(this.update);
 
     var numPeopleSide = '"' + model.getNumberOfGuests() + '"';
     var totalCost = model.getTotalMenuPrice() + " SEK";
@@ -33,11 +41,15 @@ var SidePanelView = function (container, model) {
         "Cost</div></div>" +
         "<br/>" + menuContent +
         "<div class=\"row\"><div class=\"col-12\" id=\"mealTotalCost\">" + totalCost + "</div></div>" +
-        "<div class=\"row\"><div class=\"col\"><button type=\"button\" class=\"btn\" disabled>Confirm Dinner</button></div></div></ul>";
+        "<div class=\"row\"><div class=\"col\"><button id=\"confirmButton\" type=\"button\" class=\"btn\" disabled>Confirm Dinner</button></div></div></ul>";
 
 
     console.log(length);
 
 
     container.html(content);
+    
+    if (length > 0) { confirmButton.disabled = false;}
+    else { confirmButton.disabled = true;}
+
 };
