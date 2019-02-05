@@ -1,30 +1,34 @@
 
 var SidePanelView = function (container, model) {
     this.update = function(model, changeDetails){
-        this.generate();
-        // console.log("cd: " + changeDetails.changeType);
+        if(changeDetails.changeType == "menu") {
+            this.changeMenu();
+        }
+        else if(changeDetails.changeType == "guests") {
+            this.changeNumberOfGuests();
+        }
     }.bind(this);       // maybe find another solution but this works for now
     model.addObserver(this.update);
+
+    this.generateMenuContent = function() {
+        var menu = model.getFullMenu();
+        var menuContent = "";
+        var i;
+
+        for (i = 0; i < menu.length; i++) {
+            menuContent += "<div class='selectedDish row'><div class='col-8'>"+ menu[i].name+ "</div>" +
+                "<div class='col-4'>"+ model.getTotalDishPrice(menu[i].id)  + "</div></div>";
+        }
+        return menuContent;
+    }
 
     this.generate = function() {
         var numPeopleSide = '"' + model.getNumberOfGuests() + '"';
         var totalCost = model.getTotalMenuPrice() + " SEK";
-
-        // console.log(numPeopleSide);
-        // console.log(totalCost);
-
         var dish = model.getFullMenu();
-
         var length = model.getFullMenu().length;
-        var i;
-        var menuContent = "";
 
-        for (i = 0; i < length; i++) {
-            menuContent = menuContent +  "<div class='selectedDish row'><div class='col-8'>"+ dish[i].name+ "</div>" +
-                "<div class='col-4'>"+ model.getTotalDishPrice(dish[i].id)  + "</div></div>";
-        }
-
-        // console.log(menuContent);
+        var menuContent = this.generateMenuContent();
 
         content =
             "<ul class=\"list-group\">" +
@@ -35,7 +39,7 @@ var SidePanelView = function (container, model) {
             numPeopleSide +
             "></form></div></div><div class=\"row mainTitles\"> <div class=\"col-8\">Dish Name</div> <div class=\"col-4\">" +
             "Cost</div></div>" +
-            "<br/>" + menuContent +
+            "<br/><div id=\"menuContent\">" + menuContent + "</div>" +
             "<div class=\"row\"><div class=\"col-12\" id=\"mealTotalCost\">" + totalCost + "</div></div>" +
             "<div class=\"row\"><div class=\"col\"><button id=\"confirmButton\" type=\"button\" class=\"btn\" disabled>Confirm Dinner</button></div></div></ul>";
 
@@ -49,4 +53,14 @@ var SidePanelView = function (container, model) {
     }
 
     this.generate();
+
+    this.changeNumberOfGuests = function() {
+        var numGuests = model.getNumberOfGuests();
+        document.getElementById("numPeopleSide").value = numGuests; // remove because this is where the change comes from?
+        document.getElementById("menuContent").innerHTML = this.generateMenuContent();
+
+    }
+    this.changeMenu = function() {
+        document.getElementById("menuContent").innerHTML = this.generateMenuContent();
+    }
 };
