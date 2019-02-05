@@ -24,22 +24,6 @@ var DinnerPrintView = function (container, model) {
 
 	var dishViews = this.generateDishViews();
 	var guests = model.getNumberOfGuests();
-	
-
-	var content = 
-	`<nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
-		<div class="navbar-brand">
-		</div>
-		<div id="numberOfGuests" class="col-4">My dinner: ${guests} people</div>
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<button id="backButton" class="btn  my-2 my-lg-0">Go back and edit dinner</button>
-				</ul>
-			</div>
-		</nav><!-- NavBar END -->`; 
 
 	var dishes = 
 	`<div class="row" id="body-row">
@@ -50,7 +34,7 @@ var DinnerPrintView = function (container, model) {
 		</div>
 	</div><!-- body-row END -->`;
 
-	container.html(content + dishes);
+	container.html(dishes);
 
 	this.changeNumberOfGuests = function() {
         document.getElementById("numberOfGuests").innerHTML= "My dinner: " + model.getNumberOfGuests() + " people"; 

@@ -11,7 +11,7 @@ $(function() {
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
 	var menuView = new MenuView($("#selectDishListView"), model);
 	var topMenuStandardView = new TopMenuStandardView ($("#menuStandard"), model);
-	var topMenuSummary = new TopMenuSummaryView ($("#menuSummary"), model);
+	var topMenuSummaryView = new TopMenuSummaryView ($("#menuSummary"), model);
 
 
 	// var menuView = new MenuView($("#dishCard"), model);
@@ -26,7 +26,7 @@ $(function() {
 	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
 	var dishController = new DishController(this, dishView, model);
 	var dinnerSummaryController = new DinnerSummaryController(this, dinnerSummaryView, model);
-	var dinnerPrintController = new DinnerPrintController(this, dinnerPrintView, model);
+	var topMenuSummaryController = new TopMenuSummaryController(this, topMenuSummaryView, model);
 
 	this.hideStartView = function() {
 		document.getElementById("startView").style.display = "none";
@@ -36,7 +36,7 @@ $(function() {
 	}
 	this.hideSelectDishView = function() {
 		document.getElementById("selectDishView").style.display = "none";
-		document.getElementById("sd").style.display = "none";
+		//document.getElementById("sd").style.display = "none";
 	}
 	this.hideSelectDishListView = function() {
 		document.getElementById("selectDishListView").style.display = "none";
@@ -59,7 +59,7 @@ $(function() {
 	}
 	this.showSelectDishView = function() {
 		document.getElementById("selectDishView").style.display = "";
-		document.getElementById("sd").style.display = "";
+		//document.getElementById("sd").style.display = "";
 	}
 	this.showSelectDishListView = function() {
 		document.getElementById("selectDishListView").style.display = "";
@@ -87,6 +87,12 @@ $(function() {
 	this.hideTopMenu = function() {
 		document.getElementById("menuStandard").style.display = "none";
 	}
+	this.showTopSummaryMenu = function() {
+		document.getElementById("menuSummary").style.display = "";
+	}
+	this.hideTopSummaryMenu = function() {
+		document.getElementById("menuSummary").style.display = "none";
+	}
 
 	this.hideAllViews = function() {
 		// hideSelectDish();
@@ -99,6 +105,7 @@ $(function() {
 	 	this.hideStartView();
 	 	this.hideSidePanelView();
 	 	this.hideTopMenu();
+	 	this.hideTopSummaryMenu();
 	}
 
 	this.initiatePage = function() {
@@ -118,19 +125,21 @@ $(function() {
 	this.showDishInfoPage = function() {
 		this.hideSelectDishView();
 		this.hideSelectDishListView();
-			// TODO get view to update to use new id
 		this.showDishView();
 	}
 
 	this.showDinnerSummaryPage = function() {
 		this.hideAllViews();
 		this.showDinnerSummaryView();
+		this.showTopSummaryMenu();
 	}
 
 	this.showPrintPage = function() {
 		this.hideAllViews();
 		this.showDinnerPrintView();
+		this.showTopSummaryMenu();
 	}
+
 
 
 	this.initiatePage();

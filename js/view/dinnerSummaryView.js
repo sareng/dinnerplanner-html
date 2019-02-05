@@ -46,7 +46,6 @@ var DinnerSummaryView = function (container, model) {
     this.changeMenu = function() {
         document.getElementById("dishCards").innerHTML = this.generateDishCards();
         document.getElementById("mealSummaryTotalCost").innerHTML = model.getTotalMenuPrice() + " SEK";
-        console.log("menu.length: " + model.getFullMenu().length + " price: " + model.getTotalMenuPrice());
     }
 
 }
