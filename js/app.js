@@ -31,9 +31,6 @@ $(function() {
 	this.hideStartView = function() {
 		document.getElementById("startView").style.display = "none";
 	}
-	// var hideSidePanelView = function() {
-	// 	document.getElementById("sidePanel").style.display = "none";
-	// }
 	this.hideSelectDish = function() {
 		document.getElementById("body-row").style.display = "none";
 	}
@@ -92,7 +89,6 @@ $(function() {
 	}
 
 	this.hideAllViews = function() {
-		// hideSidePanelView();
 		// hideSelectDish();
 		this.hideSelectDishView();
 		this.hideSelectDishListView();

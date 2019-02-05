@@ -12,14 +12,14 @@ var DinnerModel = function() {
    
 //.... other model data and code calling notifyObservers() when the model changes
 
-	this.numberOfGuests = 1;
+	this.numberOfGuests = 2;
 	this.currentDish = 1;
 	this.menu = [1,101];
 	this.dishTypes = ["All", "Main Course", "Side Dish", "Appetizer", "Dessert"];
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
-		this.notifyObservers(this.numberOfGuests);
+		this.notifyObservers({changeType: "guests", newValue:this.numberOfGuests});
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -28,7 +28,7 @@ var DinnerModel = function() {
 
 	this.setCurrentDish = function(id) {
 		this.currentDish = id;
-		this.notifyObservers(this.currentDish);
+		this.notifyObservers({changeType: "dish", newValue:this.currentDish});
 	}
 
 	this.getCurrentDish = function() {
@@ -37,12 +37,12 @@ var DinnerModel = function() {
 
 	this.addDishType = function(type) {
 		this.dishTypes.push(type);
-		this.notifyObservers({dishType:this.dishTypes});
+		this.notifyObservers({changeType: "dishTypes", newValue:this.dishTypes});
 	}
 
 	this.removeDishType = function(type) {
 		this.dishTypes.splice(this.dishTypes.indexOf(type),1);
-		this.notifyObservers(this.dishTypes);
+		this.notifyObservers({changeType: "dishTypes", newValue:this.dishTypes});
 	}
 
 	this.getDishTypes = function() {
@@ -107,7 +107,7 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		this.menu.splice(this.menu.indexOf(id),1);
-		this.notifyObservers(this.getFullMenu());
+		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
 	}
 
 	//returns all dishes, no type needed
