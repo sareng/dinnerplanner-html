@@ -53,7 +53,7 @@ var DinnerPrintView = function (container, model) {
 	container.html(content + dishes);
 
 	this.changeNumberOfGuests = function() {
-        document.getElementById("numberOfGuests").innerHTML= "My dinner: " + guests + " people"; 
+        document.getElementById("numberOfGuests").innerHTML= "My dinner: " + model.getNumberOfGuests() + " people"; 
     }
 
     this.changeMenu = function() {

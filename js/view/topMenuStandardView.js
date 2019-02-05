@@ -29,7 +29,7 @@ var TopMenuStandardView = function (container, model) {
         "<div class=\"row subTitles\">" +
         "<div class=\"col-4\">People</div>" +
         "<div class=\"col-8\">" +
-        "<form><input id=\"numPeopleSide\" type=\"number\" name=\"numPeople\" min=\"1\" max=\"999\" value=" +
+        "<form><input id=\"numPeopleTop\" type=\"number\" name=\"numPeople\" min=\"1\" max=\"999\" value=" +
         numPeopleSide +
         "></form></div></div><div class=\"row mainTitles\"> <div class=\"col\">Dish Name</div> <div class=\"col\">Cost</div></div><div class=\"row\">" +
         "<div class=\"col-9\" id=\"dishName\"></div><div class=\"col-3\" id=\"dishTotalCost\"></div></div>" +

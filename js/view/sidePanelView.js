@@ -55,7 +55,7 @@ var SidePanelView = function (container, model) {
     this.generate();
 
     this.changeNumberOfGuests = function() {
-        document.getElementById("numPeopleSide").value = model.getNumberOfGuests(); // remove because this is where the change comes from?
+        // document.getElementById("numPeopleSide").value = model.getNumberOfGuests(); // remove because this is where the change comes from?
         document.getElementById("menuContent").innerHTML = this.generateMenuContent();
         document.getElementById("mealTotalCostSide").innerHTML = model.getTotalMenuPrice() + " SEK";
 
