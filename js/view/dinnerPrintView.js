@@ -1,22 +1,30 @@
 
 var DinnerPrintView = function (container, model) {
 	this.update = function(model, changeDetails){
-	     // redraw just the portion affected by the changeDetails
-	     // or remove all graphics in the view, read the whole model and redraw 
-	} 
+        if(changeDetails.changeType == "menu") {
+            this.changeMenu();
+        }
+        else if(changeDetails.changeType == "guests") {
+            this.changeNumberOfGuests();
+        }
+    }.bind(this);  
 	model.addObserver(this.update);
 
+	this.generateDishViews = function() {
+		var menu = model.getFullMenu();
+		var dishViews = [];
+
+		menu.forEach(dish => {
+			dishViews.push(DishPrintView(model, dish));
+			dishViews.push("</hr>");
+		});
+
+		return dishViews.join("");
+	}
+
+	var dishViews = this.generateDishViews();
 	var guests = model.getNumberOfGuests();
-	var menu = model.getFullMenu();
-
-	var dishViews = [];
-
-	menu.forEach(dish => {
-		dishViews.push(DishPrintView(model, dish));
-		dishViews.push("</hr>");
-	});
-
-	dishView = dishViews.join("");
+	
 
 	var content = 
 	`<nav class="navbar navbar-expand-md navbar-light bg-light col-xs-12 col-sm-12 col-md-12 col-lg-12 topMenu" >
@@ -37,10 +45,20 @@ var DinnerPrintView = function (container, model) {
 	`<div class="row" id="body-row">
 		<!-- Sidebar -->
 		<!-- MAIN -->
-		<div class="col main">
-			${dishView}
+		<div id="dishViews" class="col main">
+			${dishViews}
 		</div>
 	</div><!-- body-row END -->`;
 
 	container.html(content + dishes);
+
+	this.changeNumberOfGuests = function() {
+        document.getElementById("numberOfGuests").innerHTML= "My dinner: " + guests + " people"; 
+    }
+
+    this.changeMenu = function() {
+        document.getElementById("dishViews").innerHTML = this.generateDishViews();
+    }
+
+
 }

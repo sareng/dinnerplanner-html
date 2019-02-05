@@ -40,7 +40,7 @@ var SidePanelView = function (container, model) {
             "></form></div></div><div class=\"row mainTitles\"> <div class=\"col-8\">Dish Name</div> <div class=\"col-4\">" +
             "Cost</div></div>" +
             "<br/><div id=\"menuContent\">" + menuContent + "</div>" +
-            "<div class=\"row\"><div class=\"col-12\" id=\"mealTotalCost\">" + totalCost + "</div></div>" +
+            "<div class=\"row\"><div class=\"col-12\" id=\"mealTotalCostSide\">" + totalCost + "</div></div>" +
             "<div class=\"row\"><div class=\"col\"><button id=\"confirmButton\" type=\"button\" class=\"btn\" disabled>Confirm Dinner</button></div></div></ul>";
 
 
@@ -55,12 +55,14 @@ var SidePanelView = function (container, model) {
     this.generate();
 
     this.changeNumberOfGuests = function() {
-        var numGuests = model.getNumberOfGuests();
-        document.getElementById("numPeopleSide").value = numGuests; // remove because this is where the change comes from?
+        document.getElementById("numPeopleSide").value = model.getNumberOfGuests(); // remove because this is where the change comes from?
         document.getElementById("menuContent").innerHTML = this.generateMenuContent();
+        document.getElementById("mealTotalCostSide").innerHTML = model.getTotalMenuPrice() + " SEK";
 
     }
     this.changeMenu = function() {
         document.getElementById("menuContent").innerHTML = this.generateMenuContent();
+        document.getElementById("mealTotalCostSide").innerHTML = model.getTotalMenuPrice() + " SEK";
+
     }
 };
