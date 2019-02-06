@@ -97,6 +97,7 @@ var DishView = function (container, model) {
 	this.changeDish = function() {
 		var id = model.getCurrentDish();
 		var dish = model.getDish(id);
+		console.log("id: " + id + " dish: " + dish);
 		var numGuests = model.getNumberOfGuests();
 		document.getElementById("dishInfoName").innerHTML = dish.name;
 		document.getElementById("dishInfoImage").src = "images/" + dish.image;

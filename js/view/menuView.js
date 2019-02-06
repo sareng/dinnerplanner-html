@@ -15,8 +15,8 @@ var  MenuView = function (container, model) {
 		dishes.forEach(dish => {
 			var imagePath = "images/" + dish.image;
 			card.push(
-				`<div id="dish${dish.id}" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					<div class="card text-center">
+				`<div id="dish${dish.id}col" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div id="dish${dish.id}" class="card text-center">
 						<img id="dishImage" class="card-img-top" src="${imagePath}" alt="${dish.name}">
 						<div class="card-body">
 							<h5 class="card-title" id="dishTitle">${dish.name}</h5>
@@ -28,12 +28,12 @@ var  MenuView = function (container, model) {
 	}
 
 	this.hideDish = function(id) {
-		dishId = "dish" + id; 
+		dishId = "dish" + id + "col"; 
 		document.getElementById(dishId).style.display = "none";
 
 	}
 	this.showDish = function(id) {
-		dishId = "dish" + id; 
+		dishId = "dish" + id + "col"; 
 		document.getElementById(dishId).style.display = "";
 	}
 
