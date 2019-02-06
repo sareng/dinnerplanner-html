@@ -11,7 +11,7 @@ var SelectDishView = function (container, model) {
 		var dishTypesHtml = [];
 
 		dishTypes.forEach(dishType => {
-			dishTypesHtml.push(`<option> ${dishType} </option>`);
+			dishTypesHtml.push(`<option value="${dishType.value}"> ${dishType.name} </option>`);
 		});
 		return dishTypesHtml.join("");
 	}

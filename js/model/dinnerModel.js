@@ -15,7 +15,7 @@ var DinnerModel = function() {
 	this.numberOfGuests = 2;
 	this.currentDish = 1;
 	this.menu = [1,101];
-	this.dishTypes = ["All", "Main Course", "Side Dish", "Appetizer", "Dessert"];
+	this.dishTypes = [{value:"all",name:"All"},{value:"main dish",name:"Main Course"},{value:"side dish",name:"Side Dish"},{value:"starter",name:"Appetizer"},{value:"dessert",name:"Dessert"}];
 	this.searchResult = [];
 
 	this.setNumberOfGuests = function(num) {
@@ -131,6 +131,14 @@ var DinnerModel = function() {
 	this.getAllDishes = function (type,filter) {
 	  return dishes.filter(function(dish) {
 		var found = true;
+		var matchingType = false;
+		if(type == "all") {
+			matchingType = true;
+		}
+		else {
+			matchingType = dish.type == type;
+		}
+
 		if(filter){
 			found = false;
 			dish.ingredients.forEach(function(ingredient) {
@@ -143,7 +151,7 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
+	  	return matchingType && found;
 	  });	
 	}
 
