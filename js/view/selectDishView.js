@@ -6,33 +6,38 @@ var SelectDishView = function (container, model) {
 	} 
 	model.addObserver(this.update);
 
-	var dishTypes = model.getDishTypes();
-	var dishTypesHtml = [];
+	this.generateDishTypes = function() {
+	 	var dishTypes = model.getDishTypes();
+		var dishTypesHtml = [];
 
-	dishTypesHtml.forEach(dishType => {
-		dishTypesHtml.push(`<option> ${dishType} </option>`);
-	});
+		dishTypes.forEach(dishType => {
+			dishTypesHtml.push(`<option> ${dishType} </option>`);
+		});
+		return dishTypesHtml.join("");
+	}
+
+	var dishTypes = this.generateDishTypes();
 
 	var content = 	
 		`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
 				<form>
 					<div class="form-group">
-						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="FIND A DISH...">
+						<input type="text" class="form-control" id="searchDishInput" placeholder="FIND A DISH...">
 					</div>
 				</form>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 				<form>
 					<div class="form-group">
-						<select class="form-control" id="exampleFormControlSelect1">
-							${dishTypesHtml.join("")}
+						<select class="form-control" id="dishTypeSelect">
+							${dishTypes}
 						</select>
 					</div>
 				</form>
 
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-				<button type="button" class="btn">Search</button>
+				<button id="searchButton" type="button" class="btn">Search</button>
 			</div>`;
 
 	container.html(content);

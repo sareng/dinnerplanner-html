@@ -16,6 +16,7 @@ var DinnerModel = function() {
 	this.currentDish = 1;
 	this.menu = [1,101];
 	this.dishTypes = ["All", "Main Course", "Side Dish", "Appetizer", "Dessert"];
+	this.searchResult = [];
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
@@ -33,6 +34,15 @@ var DinnerModel = function() {
 
 	this.getCurrentDish = function() {
 		return this.currentDish;
+	}
+
+	this.setSearchResult = function(result) {
+		this.searchResult = result;
+		this.notifyObservers({changeType: "search", newValue:this.searchResult});
+	}
+
+	this.getSearchResult = function() {
+		return this.searchResult;
 	}
 
 	this.addDishType = function(type) {

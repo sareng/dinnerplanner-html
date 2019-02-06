@@ -24,6 +24,7 @@ $(function() {
 	var startController = new StartController(this, startView, model);
 	var sidePanelController = new SidePanelController(this, sidePanelView, model);
 	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
+	var searchDishController = new SearchDishController(this, selectDishView, model);
 	var dishController = new DishController(this, dishView, model);
 	var dinnerSummaryController = new DinnerSummaryController(this, dinnerSummaryView, model);
 	var topMenuSummaryController = new TopMenuSummaryController(this, topMenuSummaryView, model);

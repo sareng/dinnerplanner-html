@@ -27,7 +27,6 @@ var DinnerSummaryView = function (container, model) {
 	}
 	
 
-	//footer = "<div class="row"> " + ""
 
 	var footer = 
 		`<hr>
