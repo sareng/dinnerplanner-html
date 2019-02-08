@@ -33,11 +33,5 @@ var DishPrintView = function (model, dish) { //container,
 			</div>
 		</div>`;
 
-	//container.html(content);
-
-	// var generate = function () {
-	// 	console.log("from dish: " + content);
-	// 	return content;
-	// }
 	return content;
 }

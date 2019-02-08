@@ -41,6 +41,19 @@ var SelectDishView = function (container, model) {
 			</div>`;
 
 	container.html(content);
+
+	this.getSearchButton = function() {
+		return container.find("#searchButton");
+	}
+
+	this.getSearchDishInput = function() {
+		return container.find("#searchDishInput");
+	}
+
+	this.getDishTypeSelect = function() {
+		return container.find("#dishTypeSelect");
+	}
+
 }
 
 

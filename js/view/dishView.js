@@ -1,12 +1,14 @@
 
 var DishView = function (container, model) {
 	this.update = function(model, changeDetails){
+		var numGuests = model.getNumberOfGuests();
+		var id = model.getCurrentDish();
+
 		if(changeDetails.changeType == "dish") {
-            //this.generate();
-            this.changeDish();
+            this.changeDish(id, numGuests);
         }
         else if(changeDetails.changeType == "guests") {
-        	this.changeNumberOfGuests();
+        	this.changeNumberOfGuests(id, numGuests);
         }
 	}.bind(this);
 	model.addObserver(this.update);
@@ -23,7 +25,8 @@ var DishView = function (container, model) {
 					<td>${numGuests * ingredient.price}</td>
 				</tr>`);
 		});
-		return table.join("");
+
+		return `<tbody>${table.join("")} <tr><th></th><td></td><td>SEK</td><td id="totalDishPrice"> ${model.getTotalDishPrice(id)} </td></tr>`;
 	}
 
 	this.generate = function() {
@@ -65,7 +68,7 @@ var DishView = function (container, model) {
 					</div>
 				</div>
 				<table id="ingredientTable" class="table table-striped">
-					<tbody>${table} <tr><th></th><td></td><td>SEK</td><td id="totalDishPrice"> ${model.getTotalDishPrice(id)} </td></tr>
+					${table}
 				</table>
 				<button id="dishBackButton" type="button" class="btn">Back to Search</button>
 				<button id="addDishButton" type="button" class="btn">Add to Menu</button>
@@ -94,23 +97,26 @@ var DishView = function (container, model) {
 
 	this.generate();
 
-	this.changeDish = function() {
-		var id = model.getCurrentDish();
+	this.changeDish = function(id, numGuests) {
 		var dish = model.getDish(id);
-		console.log("id: " + id + " dish: " + dish);
-		var numGuests = model.getNumberOfGuests();
-		document.getElementById("dishInfoName").innerHTML = dish.name;
-		document.getElementById("dishInfoImage").src = "images/" + dish.image;
-		document.getElementById("dishInfoImage").alt = "image of " + dish.name;
-		table = this.generateIngrTable(id, numGuests);
-		document.getElementById("ingredientTable").innerHTML = `<tbody>${table} <tr><th></th><td></td><td>SEK</td><td id="totalDishPrice"> ${model.getTotalDishPrice(id)} </td></tr>`;
+		container.find("#dishInfoName")[0].innerHTML = dish.name;
+		var dishInfoImage = container.find("#dishInfoImage")[0];
+		dishInfoImage.src = "images/" + dish.image;
+		dishInfoImage.alt = "image of " + dish.name;
+		container.find("#ingredientTable")[0].innerHTML = this.generateIngrTable(id, numGuests);
 	}
-	this.changeNumberOfGuests = function() {
-		var numGuests = model.getNumberOfGuests();
-		var id = model.getCurrentDish();
-		document.getElementById("ingrHdr").innerHTML = `INGREDIENTS FOR ${numGuests} PEOPLE`;
-		table = this.generateIngrTable(id, numGuests);
-		document.getElementById("ingredientTable").innerHTML = `<tbody>${table} <tr><th></th><td></td><td>SEK</td><td id="totalDishPrice"> ${model.getTotalDishPrice(id)} </td></tr>`;
+	this.changeNumberOfGuests = function(id, numGuests) {
+		container.find("#ingrHdr")[0].innerHTML = `INGREDIENTS FOR ${numGuests} PEOPLE`;
+		container.find("#ingredientTable")[0].innerHTML = this.generateIngrTable(id, numGuests);
 	}
+
+	this.getDishBackButton = function() {
+		return container.find("#dishBackButton");
+	}
+	this.getAddDishButton = function() {
+		return container.find("#addDishButton");
+	}
+
+
 
 }

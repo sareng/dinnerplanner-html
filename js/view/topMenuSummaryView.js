@@ -47,7 +47,11 @@ var TopMenuSummaryView = function (container, model) {
     container.html(content);
 
     this.changeNumberOfGuests = function() {
-        document.getElementById("numberOfGuests").innerHTML= "My dinner: " + model.getNumberOfGuests() + " people"; 
+        container.find("#numberOfGuests")[0].innerHTML= "My dinner: " + model.getNumberOfGuests() + " people"; 
+    }
+
+    this.getBackButton = function() {
+        return container.find("#backButton");
     }
 };
 

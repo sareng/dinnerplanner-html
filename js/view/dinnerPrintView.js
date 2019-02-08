@@ -4,9 +4,6 @@ var DinnerPrintView = function (container, model) {
         if(changeDetails.changeType == "menu") {
             this.changeMenu();
         }
-        // else if(changeDetails.changeType == "guests") {
-        //     this.changeNumberOfGuests();
-        // }
     }.bind(this);  
 	model.addObserver(this.update);
 
@@ -36,12 +33,8 @@ var DinnerPrintView = function (container, model) {
 
 	container.html(dishes);
 
-	// this.changeNumberOfGuests = function() {
- //        document.getElementById("numberOfGuests").innerHTML= "My dinner: " + model.getNumberOfGuests() + " people"; 
- //    }
-
     this.changeMenu = function() {
-        document.getElementById("dishViews").innerHTML = this.generateDishViews();
+        container.find("#dishViews")[0].innerHTML = this.generateDishViews();
     }
 
 

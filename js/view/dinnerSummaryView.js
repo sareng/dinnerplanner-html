@@ -38,13 +38,17 @@ var DinnerSummaryView = function (container, model) {
 	container.html("<div id=\"dishCards\" class=\"row menu\">" + cards + "</div>" + footer);
 
     this.changeNumberOfGuests = function() {
-        document.getElementById("mealSummaryTotalCost").innerHTML = model.getTotalMenuPrice() + " SEK";
+        container.find("#mealSummaryTotalCost")[0].innerHTML = model.getTotalMenuPrice() + " SEK";
         // fix for top nr of people and ind dish prices
 
     }
     this.changeMenu = function() {
-        document.getElementById("dishCards").innerHTML = this.generateDishCards();
-        document.getElementById("mealSummaryTotalCost").innerHTML = model.getTotalMenuPrice() + " SEK";
+        container.find("#dishCards")[0].innerHTML = this.generateDishCards();
+        container.find("#mealSummaryTotalCost")[0].innerHTML = model.getTotalMenuPrice() + " SEK";
     }
+
+    this.printButton = function() {
+		return container.find("#printButton")[0];
+	}
 
 }

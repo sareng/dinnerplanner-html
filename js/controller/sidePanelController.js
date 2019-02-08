@@ -1,16 +1,16 @@
 var SidePanelController = function(genController, view, model) {
 
-	var numGuestsButton = document.getElementById("numPeopleSide");
+	var numGuestsButton = view.getNumGuestsButton();
 	var numGuestsListener = function(evt) {
 		model.setNumberOfGuests(evt.target.value);
 	}
-	numGuestsButton.addEventListener("input", numGuestsListener , false);
+	numGuestsButton[0].addEventListener("input", numGuestsListener , false);
 	//numGuestsButton.addEventListener("change", numGuestsListener , false);
 
-	var confirmbtn = document.getElementById("confirmButton"); // prob change from searching whole document to only this container
+	var confirmbtn = view.getConfirmButton(); 
 	var confirmListener = function(evt){
 		genController.dinnerConfirmed();
 	}
-	confirmbtn.addEventListener("click", confirmListener , false);
+	confirmbtn[0].addEventListener("click", confirmListener , false);
 
 }

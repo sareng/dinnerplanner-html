@@ -1,6 +1,6 @@
 var DinnerSummaryController = function(genController, view, model) {
 
-	printbtn = document.getElementById("printButton"); // prob change from searching whole document to only this container
+	printbtn = view.getPrintButton(); 
 	var printListener = function(evt){
 		genController.printButtonClicked();
 	}

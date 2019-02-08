@@ -1,16 +1,15 @@
 var SelectDishListController = function(genController, view, model) {
 
 	addCardEventListeners = function() {
-		var root = document.getElementById("selectDishListView");
-		var cards = root.getElementsByClassName("card");
+		var cards = view.getAllCards();
 
 		var cardListener = function(evt){
-			model.setCurrentDish(evt.currentTarget.id.slice(4)); // slice to remove "dish" from id
+			model.setCurrentDish(view.getDishId(evt.currentTarget.id)); 
 			genController.dishCardClicked();
 		}
 
-		Array.from(cards).forEach(card => {
-	      card.addEventListener('click', cardListener, false);
+		cards.forEach(card => {
+	      card[0].addEventListener('click', cardListener, false);
 	    });
 	}
 	addCardEventListeners();

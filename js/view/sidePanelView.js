@@ -55,14 +55,21 @@ var SidePanelView = function (container, model) {
     this.generate();
 
     this.changeNumberOfGuests = function() {
-        // document.getElementById("numPeopleSide").value = model.getNumberOfGuests(); // remove because this is where the change comes from?
-        document.getElementById("menuContent").innerHTML = this.generateMenuContent();
-        document.getElementById("mealTotalCostSide").innerHTML = model.getTotalMenuPrice() + " SEK";
+        // container.find("#numPeopleSide").value = model.getNumberOfGuests(); // remove because this is where the change comes from?
+        container.find("#menuContent")[0].innerHTML = this.generateMenuContent();
+        container.find("#mealTotalCostSide")[0].innerHTML = model.getTotalMenuPrice() + " SEK";
 
     }
     this.changeMenu = function() {
-        document.getElementById("menuContent").innerHTML = this.generateMenuContent();
-        document.getElementById("mealTotalCostSide").innerHTML = model.getTotalMenuPrice() + " SEK";
+        container.find("#menuContent")[0].innerHTML = this.generateMenuContent();
+        container.find("#mealTotalCostSide")[0].innerHTML = model.getTotalMenuPrice() + " SEK";
 
+    }
+
+    this.getNumGuestsButton = function() {
+        return container.find("#numPeopleSide");
+    }
+    this.getConfirmButton = function() {
+        return container.find("#confirmButton");
     }
 };

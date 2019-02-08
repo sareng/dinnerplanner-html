@@ -16,4 +16,8 @@ var  StartView = function (container, model) {
 		"</div>";
 
 	container.html(content);
+
+	this.getStartButton = function() {
+		return container.find("#startButton");
+	}
 }

@@ -1,15 +1,15 @@
 var DishController = function(genController, view, model) {
 
-	backbtn = document.getElementById("dishBackButton"); // prob change from searching whole document to only this container
+	backbtn = view.getDishBackButton();
 	var backListener = function(evt){
 		genController.dishBackButtonClicked();
 	}
-	backbtn.addEventListener("click", backListener , false);
+	backbtn[0].addEventListener("click", backListener , false);
 
-	addbtn = document.getElementById("addDishButton"); // prob change from searching whole document to only this container
+	addbtn = view.getAddDishButton();
 	var addListener = function(evt){
 		model.addDishToMenu(model.getCurrentDish());
 	}
-	addbtn.addEventListener("click", addListener , false);
+	addbtn[0].addEventListener("click", addListener , false);
 
 }

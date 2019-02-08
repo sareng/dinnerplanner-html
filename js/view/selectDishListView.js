@@ -1,5 +1,5 @@
 
-var  MenuView = function (container, model) {
+var  SelectDishListView = function (container, model) {
 	this.update = function(model, changeDetails){
 	    if(changeDetails.changeType == "search") {
             this.updateDishList();
@@ -15,7 +15,7 @@ var  MenuView = function (container, model) {
 		dishes.forEach(dish => {
 			var imagePath = "images/" + dish.image;
 			card.push(
-				`<div id="dish${dish.id}col" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+				`<div id="dish${dish.id}card" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div id="dish${dish.id}" class="card text-center">
 						<img id="dishImage" class="card-img-top" src="${imagePath}" alt="${dish.name}">
 						<div class="card-body">
@@ -27,14 +27,19 @@ var  MenuView = function (container, model) {
 		return card.join("")
 	}
 
-	this.hideDish = function(id) {
-		dishId = "dish" + id + "col"; 
-		document.getElementById(dishId).style.display = "none";
-
+	this.getDishCardId = function(dishId) {
+		return "dish" + dishId; 
 	}
+	 this.getDishId = function(dishCardId) {
+		return dishCardId.slice(4); 
+	}
+
+	this.hideDish = function(id) {
+		container.find("#" + this.getDishCardId(id) + "card").hide();
+	}
+
 	this.showDish = function(id) {
-		dishId = "dish" + id + "col"; 
-		document.getElementById(dishId).style.display = "";
+		container.find("#" + this.getDishCardId(id) + "card").show();
 	}
 
 	this.updateDishList = function() {
@@ -48,6 +53,19 @@ var  MenuView = function (container, model) {
 				this.hideDish(id);
 			}
 		});
+	}
+
+	this.getAllCards = function() {
+		dishes = [];
+		allDishes.map(dish => dish.id).forEach( id => {
+			dishes.push(this.getCard(id));
+		});
+		return dishes;
+	}
+	
+
+	this.getCard = function(id) {
+		return container.find("#" + this.getDishCardId(id));
 	}
 	
 	container.html(this.loadDishes(allDishes));
