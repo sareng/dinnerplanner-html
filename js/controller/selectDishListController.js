@@ -6,11 +6,7 @@ var SelectDishListController = function(genController, view, model) {
 
 		var cardListener = function(evt){
 			model.setCurrentDish(evt.currentTarget.id.slice(4)); // slice to remove "dish" from id
-			genController.showDishInfoPage();
-			// hideSelectDishView();
-			// hideSelectDishListView();
-			// // TODO get view to update to use new id
-			// showDishView();
+			genController.dishCardClicked();
 		}
 
 		Array.from(cards).forEach(card => {

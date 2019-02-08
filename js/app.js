@@ -114,6 +114,9 @@ $(function() {
 		this.showStartView();
 	 }
 
+	this.startDinner = function() {
+		this.showSelectDishPage();
+	}
 
 	this.showSelectDishPage = function() {
 		this.hideAllViews();
@@ -123,22 +126,34 @@ $(function() {
 	 	this.showTopMenu();
 	}	
 
+	this.dishCardClicked = function() {
+		this.showDishInfoPage();
+	}
+
 	this.showDishInfoPage = function() {
 		this.hideSelectDishView();
 		this.hideSelectDishListView();
 		this.showDishView();
 	}
 
-	this.showDinnerSummaryPage = function() {
+	this.dishBackButtonClicked = function() {
+		this.showSelectDishPage();
+	}
+
+	this.dinnerConfirmed = function() {
 		this.hideAllViews();
 		this.showDinnerSummaryView();
 		this.showTopSummaryMenu();
 	}
 
-	this.showPrintPage = function() {
+	this.printButtonClicked = function() {
 		this.hideAllViews();
 		this.showDinnerPrintView();
 		this.showTopSummaryMenu();
+	}
+
+	this.editDinner = function() {
+		this.showSelectDishPage();
 	}
 
 

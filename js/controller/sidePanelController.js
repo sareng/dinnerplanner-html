@@ -9,7 +9,7 @@ var SidePanelController = function(genController, view, model) {
 
 	var confirmbtn = document.getElementById("confirmButton"); // prob change from searching whole document to only this container
 	var confirmListener = function(evt){
-		genController.showDinnerSummaryPage();
+		genController.dinnerConfirmed();
 	}
 	confirmbtn.addEventListener("click", confirmListener , false);
 

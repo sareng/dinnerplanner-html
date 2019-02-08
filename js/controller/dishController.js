@@ -2,7 +2,7 @@ var DishController = function(genController, view, model) {
 
 	backbtn = document.getElementById("dishBackButton"); // prob change from searching whole document to only this container
 	var backListener = function(evt){
-		genController.showSelectDishPage();
+		genController.dishBackButtonClicked();
 	}
 	backbtn.addEventListener("click", backListener , false);
 
