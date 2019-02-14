@@ -1,14 +1,18 @@
 //DinnerModel Object constructor
+
 var DinnerModel = function() {
+
     var observers = [];
-    this.addObserver = function(observer){ observers.push(observer); }
+	//let API_KEY ='3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767';
+
+    this.addObserver = function(observer){ observers.push(observer); };
    
     this.notifyObservers = function(changeDetails){ 
         for(var i=0; i<observers.length; i++)
              observers[i](this, changeDetails); // we assume that observers[i] is a function, so we call it like observers[i](parameters)
-    }
+    };
 
-    this.removeObserver = function(observer){  /* remove observer from array */}
+    this.removeObserver = function(observer){  /* remove observer from array */};
    
 //.... other model data and code calling notifyObservers() when the model changes
 
@@ -21,55 +25,55 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
 		this.notifyObservers({changeType: "guests", newValue:this.numberOfGuests});
-	}
+	};
 	
 	this.getNumberOfGuests = function() {
 		return this.numberOfGuests;
-	}
+	};
 
 	this.setCurrentDish = function(id) {
 		this.currentDish = id;
 		this.notifyObservers({changeType: "dish", newValue:this.currentDish});
-	}
+	};
 
 	this.getCurrentDish = function() {
 		return this.currentDish;
-	}
+	};
 
 	this.setSearchResult = function(result) {
 		this.searchResult = result;
 		this.notifyObservers({changeType: "search", newValue:this.searchResult});
-	}
+	};
 
 	this.getSearchResult = function() {
 		return this.searchResult;
-	}
+	};
 
 	this.addDishType = function(type) {
 		this.dishTypes.push(type);
 		this.notifyObservers({changeType: "dishTypes", newValue:this.dishTypes});
-	}
+	};
 
 	this.removeDishType = function(type) {
 		this.dishTypes.splice(this.dishTypes.indexOf(type),1);
 		this.notifyObservers({changeType: "dishTypes", newValue:this.dishTypes});
-	}
+	};
 
 	this.getDishTypes = function() {
 		return this.dishTypes;
-	}
+	};
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		return this.menu.filter(dishId => {
 			return this.getDish(dishId).type == type;
 		});
-	}
+	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return this.menu.map(id => this.getDish(id));
-	}
+	};
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
@@ -79,7 +83,7 @@ var DinnerModel = function() {
 				allIngredients.push(ingredient.name);
 			})
 		});
-	}
+	};
 
 	//Returns the total price of the passed dish (all the ingredients multiplied by number of guests).
 	this.getTotalDishPrice = function(id) {
@@ -89,7 +93,7 @@ var DinnerModel = function() {
 			totalPrice += dish.ingredients[key].price;
 		}
 		return totalPrice * this.numberOfGuests;
-	}
+	};
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
@@ -98,7 +102,7 @@ var DinnerModel = function() {
 			totalPrice += this.getTotalDishPrice(dish);
 		});
 		return totalPrice;
-	}
+	};
 
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -112,48 +116,75 @@ var DinnerModel = function() {
 		});
 		this.menu.push(id);
 		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
-	}
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		this.menu.splice(this.menu.indexOf(id),1);
 		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
-	}
+	};
 
 	//returns all dishes, no type needed
 	this.getAllDishesAllTypes = function () {
 		return dishes;
-	}
+	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
-		var found = true;
-		var matchingType = false;
-		if(type == "all") {
-			matchingType = true;
-		}
-		else {
-			matchingType = dish.type == type;
-		}
 
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+	this.passHeader = function () {
+		return httpOptions.headers["X-Mashape-Key"];
+	};
+	this.passHeaderTwo = function () {
+		return  httpOptions.headers["Accept"];
+	};
+
+	this.getAllDishes = function (type = 'all',filter='') {
+/*		return dishes.filter(function(dish) {
+			var found = true;
+			var matchingType = false;
+			if(type == "all") {
+				matchingType = true;
+			}
+			else {
+				matchingType = dish.type == type;
+			}
+
+			if(filter){
+				found = false;
+				dish.ingredients.forEach(function(ingredient) {
+					if(ingredient.name.indexOf(filter)!=-1) {
+						found = true;
+					}
+				});
+				if(dish.name.indexOf(filter) != -1)
+				{
 					found = true;
 				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
 			}
-		}
-	  	return matchingType && found;
-	  });	
-	}
+			return matchingType && found;
+		});
+
+*/
+		const url = 'http://sunset.nada.kth.se:8080/iprog/group/81/recipes/search?number=10&offset=0&type='+ type + '&query=' + filter;
+
+
+		//https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=10&offset=0&type=main+course&query=burger
+
+		return fetch(url,{
+			headers:{
+				'X-Mashape-Key': '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767',
+			}
+		})
+			.then(response => response.json())
+			.then(data => data.results)
+
+
+
+
+	};
+
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
@@ -162,7 +193,7 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
-	}
+	};
 
 
 	// the dishes variable contains an array of all the 
@@ -416,4 +447,4 @@ var DinnerModel = function() {
 		}
 	];
 
-}
+};

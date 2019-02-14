@@ -1,7 +1,9 @@
+
+
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
-	
+
 	// initialize views
 	var startView = new StartView($("#startView"), model);
 	var sidePanelView = new SidePanelView($("#sidePanel"), model);
