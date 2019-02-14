@@ -1,17 +1,34 @@
 
+<<<<<<< HEAD:js/view/selectDishListView.js
 var  SelectDishListView = function (container, model) {
+=======
+var  MenuView = function (container, model) {
+
+/*
+>>>>>>> ce49359259094b5824c1bf8f704f12c8e4dbaa84:js/view/menuView.js
 	this.update = function(model, changeDetails){
-	    if(changeDetails.changeType == "search") {
-            this.updateDishList();
-        }
+		if(changeDetails.changeType == "search") {
+			this.updateDishList();
+		}
 	}.bind(this);
 	model.addObserver(this.update);
+*/
 
-	// load dishes from the model to search dish view
-	var allDishes = model.getAllDishesAllTypes();
+	//load from the API
 
-	this.loadDishes = function(dishes) {
+	console.log("New era");
+
+	model.getAllDishes().then(
+		function(dishes){ dishes.forEach(d=> console.log(d.id + ' ' + d.title))}
+	).catch( error => {
+		console.error("");
+	});
+
+
+	this.loadDishes = function() {
+		var allDishes = '';
 		var card = [];
+<<<<<<< HEAD:js/view/selectDishListView.js
 		dishes.forEach(dish => {
 			var imagePath = "images/" + dish.image;
 			card.push(
@@ -23,23 +40,54 @@ var  SelectDishListView = function (container, model) {
 						</div>
 					</div>
 				</div>`);
+=======
+	/*	model.getAllDishes().then(
+			function(dishes){ dishes.forEach(
+				dish => {
+					var imagePath = "https://spoonacular.com/recipeImages/" + dish.imageUrls;
+					allDishes += '<div id="dish${dish.id}col" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">' +
+						'<div id="dish${dish.id}" class="card text-center">' +
+						'<img id="dishImage" class="card-img-top" src="${imagePath}" alt="${dish.title}">' +
+						'<div class="card-body">\n' +
+						'<h5 class="card-title" id="dishTitle">${dish.title}</h5>' +
+						'</div>' +
+						'</div>' +
+						'</div>'});
+				} )}
+		.catch( error => {
+			console.error("");
+>>>>>>> ce49359259094b5824c1bf8f704f12c8e4dbaa84:js/view/menuView.js
 		});
-		return card.join("")
-	}
 
+		console.log(allDishes);*/
+		return allDishes;
+	}
+/*
+
+<<<<<<< HEAD:js/view/selectDishListView.js
 	this.getDishCardId = function(dishId) {
 		return "dish" + dishId; 
 	}
 	 this.getDishId = function(dishCardId) {
 		return dishCardId.slice(4); 
 	}
+=======
+	this.hideDish = function(id) {
+		dishId = "dish" + id + "col";
+		document.getElementById(dishId).style.display = "none";
+>>>>>>> ce49359259094b5824c1bf8f704f12c8e4dbaa84:js/view/menuView.js
 
 	this.hideDish = function(id) {
 		container.find("#" + this.getDishCardId(id) + "card").hide();
 	}
 
 	this.showDish = function(id) {
+<<<<<<< HEAD:js/view/selectDishListView.js
 		container.find("#" + this.getDishCardId(id) + "card").show();
+=======
+		dishId = "dish" + id + "col";
+		document.getElementById(dishId).style.display = "";
+>>>>>>> ce49359259094b5824c1bf8f704f12c8e4dbaa84:js/view/menuView.js
 	}
 
 	this.updateDishList = function() {
@@ -54,6 +102,7 @@ var  SelectDishListView = function (container, model) {
 			}
 		});
 	}
+<<<<<<< HEAD:js/view/selectDishListView.js
 
 	this.getAllCards = function() {
 		dishes = [];
@@ -69,6 +118,15 @@ var  SelectDishListView = function (container, model) {
 	}
 	
 	container.html(this.loadDishes(allDishes));
+=======
+*/
+
+	container.html(this.loadDishes());
+
+
+
+	//container.html(request);
+>>>>>>> ce49359259094b5824c1bf8f704f12c8e4dbaa84:js/view/menuView.js
 }
 
 
