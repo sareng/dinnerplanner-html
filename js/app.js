@@ -11,14 +11,14 @@ $(function() {
 	var dinnerSummaryView = new DinnerSummaryView($("#dinnerSummaryView"), model);
 	var dishView = new DishView($("#dishView"), model);
 	var selectDishView = new SelectDishView($("#selectDishView"), model);
-	var selectDishListView = new SelectDishListView($("#selectDishListView"), model);
+	var selectDishListView = new SelectDishListView($("#selectDishListView"), model, this);
 	var topMenuStandardView = new TopMenuStandardView ($("#menuStandard"), model);
 	var topMenuSummaryView = new TopMenuSummaryView ($("#menuSummary"), model);
 
 	// initialize controllers
 	var startController = new StartController(this, startView, model);
 	var sidePanelController = new SidePanelController(this, sidePanelView, model);
-	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
+	// var selectDishListController = new SelectDishListController(this, selectDishListView, model);
 	var searchDishController = new SearchDishController(this, selectDishView, model);
 	var dishController = new DishController(this, dishView, model);
 	var dinnerSummaryController = new DinnerSummaryController(this, dinnerSummaryView, model);

@@ -47,7 +47,7 @@ var DinnerSummaryView = function (container, model) {
         container.find("#mealSummaryTotalCost")[0].innerHTML = model.getTotalMenuPrice() + " SEK";
     }
 
-    this.printButton = function() {
+    this.getPrintButton = function() {
 		return container.find("#printButton")[0];
 	}
 

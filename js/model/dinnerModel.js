@@ -12,8 +12,6 @@ var DinnerModel = function() {
     };
 
     this.removeObserver = function(observer){  /* remove observer from array */};
-   
-//.... other model data and code calling notifyObservers() when the model changes
 
 	this.numberOfGuests = 2;
 	this.currentDish = 1;
@@ -166,12 +164,10 @@ var DinnerModel = function() {
 		});
 
 */
-		const url = 'http://sunset.nada.kth.se:8080/iprog/group/81/recipes/search?number=10&offset=0&type='+ type + '&query=' + filter;
+		const url = 'http://sunset.nada.kth.se:8080/iprog/group/5/recipes/search?number=10&offset=0&type='+ type + '&query=' + filter;
 
 
 		//https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=10&offset=0&type=main+course&query=burger
-
-
 
 
 		return fetch(url,{
@@ -181,9 +177,6 @@ var DinnerModel = function() {
 		})
 			.then(response => response.json())
 			.then(data => data.results)
-
-
-
 
 	};
 

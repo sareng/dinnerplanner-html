@@ -1,24 +1,8 @@
-var SelectDishListController = function(genController, view, model) {
-
-	addCardEventListeners = function() {
-		var cards = view.getAllCards();
-
-		var cardListener = function(evt){
-			model.setCurrentDish(view.getDishId(evt.currentTarget.id)); 
-			genController.dishCardClicked();
-		}
-
-		cards.forEach(card => {
-	      card[0].addEventListener('click', cardListener, false);
-	    });
+var SelectDishListController = function(genController, view, model, dishId) {
+	var card = view.getCard(dishId)[0];
+	var cardListener = function(evt){
+		model.setCurrentDish(dishId); 
+		genController.dishCardClicked();
 	}
-	addCardEventListeners();
-
-
-
-
-
-
-
-
+	card.addEventListener('click', cardListener, false);
 }
