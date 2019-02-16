@@ -9,6 +9,12 @@ var  SelectDishListView = function (container, model, genController) {
 	model.addObserver(this.update);
 
 
+	//loading bar while api works
+
+	console.log('loading');
+	container.html(model.loader());
+
+
 	//load from the API
 	
 	// var allDishes = '';
@@ -19,7 +25,7 @@ var  SelectDishListView = function (container, model, genController) {
 		var allDishes = '';
 		var ids = [];
 		model.getAllDishes().then(
-			function(dishes){ 
+			function(dishes){
 				dishes.forEach(dish => {
 					var imagePath = "https://spoonacular.com/recipeImages/" + dish.imageUrls;
 					var dishId = "dish" + dish.id;
@@ -39,7 +45,11 @@ var  SelectDishListView = function (container, model, genController) {
 			// return card.join("")
 			// return allDishes;
 
-			container.html(allDishes);
+			setTimeout(function() {
+				console.log('done loading...');
+				container.html(allDishes);
+			},2000);
+
 
 			ids.forEach(id => {
 				new SelectDishListController(genController, view, model, id);

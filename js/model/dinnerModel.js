@@ -166,10 +166,6 @@ var DinnerModel = function() {
 */
 		const url = 'http://sunset.nada.kth.se:8080/iprog/group/5/recipes/search?number=10&offset=0&type='+ type + '&query=' + filter;
 
-
-		//https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=10&offset=0&type=main+course&query=burger
-
-
 		return fetch(url,{
 			headers:{
 				'X-Mashape-Key': API_KEY,
@@ -177,9 +173,29 @@ var DinnerModel = function() {
 		})
 			.then(response => response.json())
 			.then(data => data.results)
+			.catch(errorOutput)
 
 	};
 
+	this.loader = function() {
+		let html = '<div class="row justify-content-center align-items-center">' +
+			'<img src="images/loadingRing.gif"></div>'
+		return html;
+	}
+
+	const handleResponse = (response) => {
+		if(response.ok){
+			console.log('loading...')
+			return response;
+		}
+		else {
+			throw response;
+		}
+	}
+
+	const errorOutput = (error) => {
+		console.error('getAllDishes() API Error:', error.message || error);
+	}
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
