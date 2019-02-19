@@ -1,4 +1,4 @@
-var SearchDishController = function(genController, view, model) {
+var SearchDishController = function(genController, view, model, dishListView) {
 	var searchText = "";
 	var dishType = "all";
 
@@ -23,18 +23,14 @@ var SearchDishController = function(genController, view, model) {
 
 	searchbtn = view.getSearchButton();
 	var searchListener = function(evt){
-		/*var dishes = [];
-		dishes = model.getAllDishes(dishType, searchText);
 
-		dishIds = dishes.map(dish => dish.id);
-		model.setSearchResult(dishIds);*/
-
+		console.log("Main Controller");
 		console.log(searchText + " " + dishType);
-
-
+		dishListView.searchRecipes(searchText, dishType);
 
 	}
 	searchbtn[0].addEventListener("click", searchListener , false);
+
 
 }
 

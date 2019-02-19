@@ -18,8 +18,8 @@ $(function() {
 	// initialize controllers
 	var startController = new StartController(this, startView, model);
 	var sidePanelController = new SidePanelController(this, sidePanelView, model);
-	var selectDishListController = new SelectDishListController(this, selectDishListView, model);
-	//var searchDishController = new SearchDishController(this, selectDishView, model);
+	//var selectDishListController = new SelectDishListController(this, selectDishListView, model);
+	var searchDishController = new SearchDishController(this, selectDishView, model, selectDishListView);
 	var dishController = new DishController(this, dishView, model);
 	var dinnerSummaryController = new DinnerSummaryController(this, dinnerSummaryView, model);
 	var topMenuSummaryController = new TopMenuSummaryController(this, topMenuSummaryView, model);
@@ -27,7 +27,7 @@ $(function() {
 	this.hideAllViews = function() {
 		$("#startView").hide();
 		$("#sidePanel").hide();
-	//	$("#selectDishView").hide();
+		$("#selectDishView").hide();
 		$("#selectDishListView").hide();
 		$("#dishView").hide();
 		$("#dinnerPrintView").hide();
@@ -45,7 +45,7 @@ $(function() {
 		this.hideAllViews();
 		$("#sidePanel").show();
 		$("#menuStandard").show();
-	//	$("#selectDishView").show();
+		$("#selectDishView").show();
 		$("#selectDishListView").show();
 	}	
 
