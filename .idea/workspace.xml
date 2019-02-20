@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c1acbda8-d864-4a89-a633-fbaefc497a81" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/js/model/dinnerModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/model/dinnerModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/view/dinnerPrintView.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/view/dinnerPrintView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/view/dinnerSummaryView.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/view/dinnerSummaryView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/view/dishView.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/view/dishView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/view/sidePanelView.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/view/sidePanelView.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -289,7 +285,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99537000" />
+    <option name="totallyTimeSpent" value="99676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="731" extended-state="6" />
