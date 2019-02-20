@@ -10,11 +10,12 @@ var DinnerPrintView = function (container, model) {
 	this.generateDishViews = function() {
 		var menu = model.getFullMenu();
 		var dishViews = [];
-
+/*
 		menu.forEach(dish => {
 			dishViews.push(DishPrintView(model, dish));
 			dishViews.push("</hr>");
 		});
+		*/
 
 		return dishViews.join("");
 	}

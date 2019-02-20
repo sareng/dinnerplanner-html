@@ -16,7 +16,7 @@ var DishView = function (container, model) {
 	this.generateIngrTable = function(id, numGuests) {
 		var dish = model.getDish(id);
 		var table = [];
-		dish.ingredients.forEach(ingredient => {
+		/*dish.ingredients.forEach(ingredient => {
 			table.push(
 				`<tr>
 					<th>${numGuests * ingredient.quantity} ${ingredient.unit}</th>
@@ -25,7 +25,7 @@ var DishView = function (container, model) {
 					<td>${numGuests * ingredient.price}</td>
 				</tr>`);
 		});
-
+*/
 		return `<tbody>${table.join("")} <tr><th></th><td></td><td>SEK</td><td id="totalDishPrice"> ${model.getTotalDishPrice(id)} </td></tr>`;
 	}
 

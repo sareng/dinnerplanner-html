@@ -14,11 +14,11 @@ var SidePanelView = function (container, model) {
         var menu = model.getFullMenu();
         var menuContent = "";
         var i;
-
+/*
         for (i = 0; i < menu.length; i++) {
             menuContent += "<div class='selectedDish row'><div class='col-8'>"+ menu[i].name+ "</div>" +
                 "<div class='col-4'>"+ model.getTotalDishPrice(menu[i].id)  + "</div></div>";
-        }
+        }*/
         return menuContent;
     }
 
@@ -26,7 +26,8 @@ var SidePanelView = function (container, model) {
         var numPeopleSide = '"' + model.getNumberOfGuests() + '"';
         var totalCost = model.getTotalMenuPrice() + " SEK";
         var dish = model.getFullMenu();
-        var length = model.getFullMenu().length;
+      //  var length = model.getFullMenu().length;
+        var length = 3;
 
         var menuContent = this.generateMenuContent();
 
