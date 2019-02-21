@@ -3,12 +3,11 @@
 var DinnerModel = function() {
 
     var observers = [];
-    let API_KEY = '';
 
 
     this.addObserver = function(observer){ observers.push(observer); };
-   
-    this.notifyObservers = function(changeDetails){ 
+
+    this.notifyObservers = function(changeDetails){
         for(var i=0; i<observers.length; i++)
              observers[i](this, changeDetails); // we assume that observers[i] is a function, so we call it like observers[i](parameters)
     };
@@ -25,7 +24,7 @@ var DinnerModel = function() {
 		this.numberOfGuests = num;
 		this.notifyObservers({changeType: "guests", newValue:this.numberOfGuests});
 	};
-	
+
 	this.getNumberOfGuests = function() {
 		return this.numberOfGuests;
 	};
@@ -62,7 +61,7 @@ var DinnerModel = function() {
 		return this.dishTypes;
 	};
 
-	//Returns the dish that is on the menu for selected type 
+	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
 		//return this.menu.filter(dishId => {
 		//	return this.getDish(dishId).type == type;
@@ -201,11 +200,11 @@ var DinnerModel = function() {
 	}
 
 
-	// the dishes variable contains an array of all the 
+	// the dishes variable contains an array of all the
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
-	// array of ingredients. Each ingredient has name, 
-	// quantity (a number), price (a number) and unit (string 
+	// array of ingredients. Each ingredient has name,
+	// quantity (a number), price (a number) and unit (string
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
@@ -215,7 +214,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'toast.png',
 		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'eggs',
 			'quantity':0.5,
 			'unit':'',
@@ -247,7 +246,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'sourdough.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'active dry yeast',
 			'quantity':0.5,
 			'unit':'g',
@@ -269,7 +268,7 @@ var DinnerModel = function() {
 		'type':'starter',
 		'image':'bakedbrie.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'round Brie cheese',
 			'quantity':10,
 			'unit':'g',
@@ -291,7 +290,7 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'extra lean ground beef',
 			'quantity':115,
 			'unit':'g',
@@ -353,7 +352,7 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'bakedbrie.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ingredient 1',
 			'quantity':1,
 			'unit':'pieces',
@@ -375,7 +374,7 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ingredient 1',
 			'quantity':2,
 			'unit':'pieces',
@@ -397,7 +396,7 @@ var DinnerModel = function() {
 		'type':'main dish',
 		'image':'meatballs.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ingredient 1',
 			'quantity':1,
 			'unit':'pieces',
@@ -419,7 +418,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ice cream',
 			'quantity':100,
 			'unit':'ml',
@@ -431,7 +430,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ice cream',
 			'quantity':100,
 			'unit':'ml',
@@ -443,7 +442,7 @@ var DinnerModel = function() {
 		'type':'dessert',
 		'image':'icecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
-		'ingredients':[{ 
+		'ingredients':[{
 			'name':'ice cream',
 			'quantity':100,
 			'unit':'ml',
