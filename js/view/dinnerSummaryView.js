@@ -12,7 +12,7 @@ var DinnerSummaryView = function (container, model) {
 	this.generateDishCards = function() {
 		var allDishes = model.getFullMenu();
 		var card = [];
-		allDishes.forEach(dish => {
+	/*	allDishes.forEach(dish => {
 			card.push(
 				`<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div class="card text-center">
@@ -23,7 +23,7 @@ var DinnerSummaryView = function (container, model) {
 					</div>
 				</div>`);
 		});
-		return card.join("");
+		return card.join("");*/
 	}
 	
 

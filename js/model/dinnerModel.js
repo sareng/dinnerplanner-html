@@ -3,6 +3,8 @@
 var DinnerModel = function() {
 
     var observers = [];
+    let API_KEY = '';
+
 
     this.addObserver = function(observer){ observers.push(observer); };
    
@@ -62,34 +64,35 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		return this.menu.filter(dishId => {
-			return this.getDish(dishId).type == type;
-		});
+		//return this.menu.filter(dishId => {
+		//	return this.getDish(dishId).type == type;
+		//});
 	};
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return this.menu.map(id => this.getDish(id));
+	//	return this.menu.map(id => this.getDish(id));
 	};
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
+		/*
 		var allIngredients = [];
 		this.menu.map(id => this.getDish(id).ingredients).forEach(dish => {
 			dish.forEach(ingredient => {
 				allIngredients.push(ingredient.name);
 			})
-		});
+		});*/
 	};
 
 	//Returns the total price of the passed dish (all the ingredients multiplied by number of guests).
 	this.getTotalDishPrice = function(id) {
-		var totalPrice = 0;
-		var dish = this.getDish(id);
-		for(key in dish.ingredients) {
-			totalPrice += dish.ingredients[key].price;
-		}
-		return totalPrice * this.numberOfGuests;
+	//	var totalPrice = 0;
+	//	var dish = this.getDish(id);
+	//	for(key in dish.ingredients) {
+	//		totalPrice += dish.ingredients[key].price;
+	//	}
+	//	return totalPrice * this.numberOfGuests;
 	};
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -105,14 +108,16 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var sameType = this.menu.filter(dishId => {
+	/*	var sameType = this.menu.filter(dishId => {
 			return this.getDish(dishId).type == this.getDish(id).type;
 		});
 		sameType.forEach(dishId => {
 			this.removeDishFromMenu(dishId);
 		});
 		this.menu.push(id);
-		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
+		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});*/
+
+
 	};
 
 	//Removes dish from menu
@@ -153,6 +158,27 @@ var DinnerModel = function() {
 
 	};
 
+
+	//function that returns a dish of specific ID
+	this.getDish = function (id = '479101') {
+		/*for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
+			}
+		}*/
+
+		const url = 'http://sunset.nada.kth.se:8080/iprog/group/5/recipes/'+ id + '/information';
+
+		return fetch(url,{
+			headers:{
+				'X-Mashape-Key': API_KEY,
+			}
+		})
+			.then(response => response.json())
+			.then(data => data)
+			.catch(errorOutput)
+	};
+
 	this.loader = function() {
 		let html = '<div class="row justify-content-center align-items-center">' +
 			'<img src="images/loadingRing.gif"></div>'
@@ -173,15 +199,6 @@ var DinnerModel = function() {
 	const errorOutput = (error) => {
 		console.error('getAllDishes() API Error:', error.message || error);
 	}
-
-	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-	};
 
 
 	// the dishes variable contains an array of all the 
