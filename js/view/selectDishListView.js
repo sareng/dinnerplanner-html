@@ -1,7 +1,7 @@
 var  SelectDishListView = function (container,model, genController) {
 
 
-	//var view = this;
+	var view = this;
 /*
 	this.update = function(model, changeDetails){
 		if(changeDetails.changeType == "search") {
@@ -14,6 +14,9 @@ var  SelectDishListView = function (container,model, genController) {
 	this.update = function(model, changeDetails){
 		// redraw just the portion affected by the changeDetails
 		// or remove all graphics in the view, read the whole model and redraw
+		if(changeDetails.changeType == "search") {
+			console.log("search array: " + model.getSearchResult());
+		}
 	}
 
 	model.addObserver(this.update);
@@ -51,10 +54,9 @@ var  SelectDishListView = function (container,model, genController) {
 			console.log();
 			container.html(allDishes);
 
-//			ids.forEach(id => {
-//				new SelectDishListController(genController, view, model, id);
-//	    	});
-
+			ids.forEach(id => {
+				new SelectDishListController(genController, view, model, id);
+	    	});
 
     	})
 
@@ -62,12 +64,13 @@ var  SelectDishListView = function (container,model, genController) {
 
 	this.loadDishes();
 
+	this.getCard = function(dishId) {
+            return container.find("#dish" + dishId);
+        }
+
 	this.searchRecipes = function (type, filter) {
 		container.html(model.loader());
 		this.loadDishes(type, filter);
 	}
 
 }
-
-
- 

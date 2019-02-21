@@ -147,6 +147,8 @@ var DinnerModel = function() {
 		})
 			.then(response => response.json())
 			.then(data => data.results)
+			// .then(data => console.log(data))
+			// .then(data => this.setSearchResult())
 			.catch(errorOutput)
 
 	};
