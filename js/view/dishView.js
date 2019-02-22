@@ -33,10 +33,10 @@ var DishView = function (container, model) {
 		var id = model.getCurrentDish();
 		var dish = model.getDish(id);
 		var numGuests = model.getNumberOfGuests();
-		var imagePath = "images/" + dish.image;
+		var imagePath = "https://spoonacular.com/recipeImages/" + dish.imageUrls;
 		var dishText = "Ambitioni rmentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti";
 
-		var foodInfo = 
+		var foodInfo =
 			`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					  <div class="row">
 						  <div class="col-12">
@@ -60,7 +60,7 @@ var DishView = function (container, model) {
 
 		var table = this.generateIngrTable(id, numGuests);
 
-		var ingredientList = 
+		var ingredientList =
 			`<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ingredientCard">
 				<div class="row">
 					<div class="col-12">
@@ -74,7 +74,7 @@ var DishView = function (container, model) {
 				<button id="addDishButton" type="button" class="btn">Add to Menu</button>
 			</div>`;
 
-		var prep = 		  
+		var prep =
 			`<div class="row">
 				<div class="col">
 					<div class="row">
@@ -98,11 +98,14 @@ var DishView = function (container, model) {
 	this.generate();
 
 	this.changeDish = function(id, numGuests) {
-		var dish = model.getDish(id);
-		container.find("#dishInfoName")[0].innerHTML = dish.name;
+		// temp dish with only the info from search result
+		var dish = model.getSearchResult().find(dish => dish.id == model.getCurrentDish());
+
+		// var dish = model.getDish(id);
+		container.find("#dishInfoName")[0].innerHTML = dish.title;
 		var dishInfoImage = container.find("#dishInfoImage")[0];
-		dishInfoImage.src = "images/" + dish.image;
-		dishInfoImage.alt = "image of " + dish.name;
+		dishInfoImage.src = "https://spoonacular.com/recipeImages/" + dish.imageUrls;
+		dishInfoImage.alt = "image of " + dish.title;
 		container.find("#ingredientTable")[0].innerHTML = this.generateIngrTable(id, numGuests);
 	}
 	this.changeNumberOfGuests = function(id, numGuests) {

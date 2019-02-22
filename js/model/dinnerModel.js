@@ -160,12 +160,6 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id = '479101') {
-		/*for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}*/
-
 		const url = 'http://sunset.nada.kth.se:8080/iprog/group/5/recipes/'+ id + '/information';
 
 		return fetch(url,{

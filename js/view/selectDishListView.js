@@ -15,7 +15,7 @@ var  SelectDishListView = function (container,model, genController) {
 		// redraw just the portion affected by the changeDetails
 		// or remove all graphics in the view, read the whole model and redraw
 		if(changeDetails.changeType == "search") {
-			console.log("search array: " + model.getSearchResult());
+			// console.log("search array: " + model.getSearchResult()[0].title);
 		}
 	}
 
@@ -34,6 +34,7 @@ var  SelectDishListView = function (container,model, genController) {
 		var ids = [];
 		model.getAllDishes(type, filter).then(
 			function(dishes){
+				model.setSearchResult(dishes);
 				dishes.forEach(dish => {
 					var imagePath = "https://spoonacular.com/recipeImages/" + dish.imageUrls;
 					var dishId = "dish" + dish.id;

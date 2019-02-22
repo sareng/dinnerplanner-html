@@ -5,17 +5,17 @@ var SearchDishController = function(genController, view, model, dishListView) {
 
 	freeSearchInput = view.getSearchDishInput();
 
-	if (freeSearchInput) {
-		console.log("we good");
-	}
+	// if (freeSearchInput) {
+	// 	console.log("we good");
+	// }
 
 	var freeSearchInputListener = function(evt){
-		console.log("writing");
+		// console.log("writing");
 		searchText = evt.target.value;
 	}
 	freeSearchInput[0].addEventListener("input", freeSearchInputListener , false);
 
-	dishTypeSelect = view.getDishTypeSelect(); 
+	dishTypeSelect = view.getDishTypeSelect();
 	var dishTypeSelectListener = function(evt){
 		dishType = evt.target.value;
 	}
@@ -24,8 +24,8 @@ var SearchDishController = function(genController, view, model, dishListView) {
 	searchbtn = view.getSearchButton();
 	var searchListener = function(evt){
 
-		console.log("Main Controller");
-		console.log(searchText + " " + dishType);
+		// console.log("Main Controller");
+		// console.log(searchText + " " + dishType);
 		dishListView.searchRecipes(searchText, dishType);
 
 	}
@@ -33,4 +33,3 @@ var SearchDishController = function(genController, view, model, dishListView) {
 
 
 }
-
