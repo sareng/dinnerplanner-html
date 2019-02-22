@@ -3,6 +3,7 @@ var SidePanelView = function (container, model) {
     this.update = function(model, changeDetails){
         if(changeDetails.changeType == "menu") {
             this.changeMenu();
+            console.log("menu: " + model.getFullMenu()[0].title);
         }
         else if(changeDetails.changeType == "guests") {
             this.changeNumberOfGuests();
@@ -14,11 +15,12 @@ var SidePanelView = function (container, model) {
         var menu = model.getFullMenu();
         var menuContent = "";
         var i;
-/*
+
         for (i = 0; i < menu.length; i++) {
-            menuContent += "<div class='selectedDish row'><div class='col-8'>"+ menu[i].name+ "</div>" +
-                "<div class='col-4'>"+ model.getTotalDishPrice(menu[i].id)  + "</div></div>";
-        }*/
+          console.log("price. " + menu[i].pricePerServing);
+            menuContent += "<div class='selectedDish row'><div class='col-8'>"+ menu[i].title+ "</div>" +
+                "<div class='col-4'>"+ menu[i].pricePerServing*model.getNumberOfGuests()  + "</div></div>";
+        }
         return menuContent;
     }
 

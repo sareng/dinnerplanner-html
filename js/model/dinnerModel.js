@@ -103,7 +103,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-	//	return this.menu.map(id => this.getDish(id));
+	   return this.menu;
 	};
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -131,25 +131,21 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		this.menu.forEach(dish => {
-			totalPrice += this.getTotalDishPrice(dish);
+			totalPrice += dish.pricePerServing;
 		});
-		return totalPrice;
+		return totalPrice * this.numberOfGuests;
 	};
 
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-	/*	var sameType = this.menu.filter(dishId => {
-			return this.getDish(dishId).type == this.getDish(id).type;
-		});
-		sameType.forEach(dishId => {
-			this.removeDishFromMenu(dishId);
-		});
-		this.menu.push(id);
-		this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});*/
-
-
+	this.addDishToMenu = function(dishSummary) {
+    console.log("in add");
+    if(!this.menu.includes(dishSummary)) {
+      console.log("not matching");
+      this.menu.push(dishSummary);
+      this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
+    }
 	};
 
 	//Removes dish from menu
@@ -207,6 +203,10 @@ var DinnerModel = function() {
 			.then(data => data)
 			.catch(errorOutput)
 	};
+
+  this.getDishFromSearchResult = function(id) {
+    return this.searchResult.find(dish => dish.id == id);
+  }
 
 
 	this.loader = function() {

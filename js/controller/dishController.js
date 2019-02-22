@@ -8,7 +8,7 @@ var DishController = function(genController, view, model) {
 
 	addbtn = view.getAddDishButton();
 	var addListener = function(evt){
-		model.addDishToMenu(model.getCurrentDish());
+		model.addDishToMenu(model.getDishFromSearchResult(model.getCurrentDish()));
 	}
 	addbtn[0].addEventListener("click", addListener , false);
 
