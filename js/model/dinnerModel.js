@@ -3,6 +3,8 @@
 var DinnerModel = function() {
 
     var observers = [];
+    const API_KEY = '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767';
+
 
 
     this.addObserver = function(observer){ observers.push(observer); };
@@ -13,6 +15,37 @@ var DinnerModel = function() {
     };
 
     this.removeObserver = function(observer){  /* remove observer from array */};
+
+
+	var cache = [];
+
+	this.getCache = function (id) {
+
+		for (let i = 0; i < cache.length; i++){
+			if (cache[i].id === id) {
+				return cache[i];
+			}
+		}
+	}
+
+	this.pushCache = function(dish) {
+		cache.push(dish);
+
+		/*	dish.extendedIngredients.forEach(ingredient => {
+
+
+                if (ingredientCache.includes(ingredient.id)) {
+                    console.log("we got this thing")
+                }else {
+                    this.getIngredient(ingredient.id).then(
+                        function(temp) {
+                        ingredientCache.push(temp) }
+                    )}
+
+            })
+
+    */
+	}
 
 	this.numberOfGuests = 2;
 	this.currentDish = 1;
@@ -157,6 +190,9 @@ var DinnerModel = function() {
 
 	};
 
+	this.getDishDummy = function (id = 1) {
+		return dishes[1];
+	}
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id = '479101') {
@@ -171,6 +207,7 @@ var DinnerModel = function() {
 			.then(data => data)
 			.catch(errorOutput)
 	};
+
 
 	this.loader = function() {
 		let html = '<div class="row justify-content-center align-items-center">' +
@@ -204,10 +241,10 @@ var DinnerModel = function() {
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
 	var dishes = [{
 		'id':1,
-		'name':'French toast',
+		'title':'French toast',
 		'type':'starter',
-		'image':'toast.png',
-		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'imageUrls':'toast.png',
+		'instructions':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
 		'ingredients':[{
 			'name':'eggs',
 			'quantity':0.5,
