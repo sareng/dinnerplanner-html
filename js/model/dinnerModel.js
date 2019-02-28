@@ -1,11 +1,8 @@
-//DinnerModel Object constructor
+
 
 var DinnerModel = function() {
 
     var observers = [];
-    const API_KEY = '3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767';
-
-
 
     this.addObserver = function(observer){ observers.push(observer); };
 
@@ -50,6 +47,7 @@ var DinnerModel = function() {
 	this.numberOfGuests = 2;
 	this.currentDish = 1;
 	this.menu = [];
+	this.menuImages = [];
 	this.dishTypes = [{value:"all",name:"All"},{value:"main dish",name:"Main Course"},{value:"side dish",name:"Side Dish"},{value:"starter",name:"Appetizer"},{value:"dessert",name:"Dessert"}];
 	this.searchResult = [];
 
@@ -139,14 +137,20 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(dishSummary) {
-    console.log("in add");
-    if(!this.menu.includes(dishSummary)) {
-      console.log("not matching");
-      this.menu.push(dishSummary);
-      this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
-    }
+	this.addDishToMenu = function(dish) {
+    console.log("ADDING: " + dish.pricePerServing);
+		if(!this.menu.includes(dish)) {
+		  console.log("not matching");
+		  this.menu.push(dish);
+		  this.menuImages.push(this.getSearchResult().find(dish => dish.id == this.getCurrentDish()));
+		  console.log(this.getSearchResult().find(dish => dish.id == this.getCurrentDish()));
+		  this.notifyObservers({changeType: "menu", newValue:this.getFullMenu()});
+		}
 	};
+
+	this.getAllMenuImages = function() {
+		return this.menuImages;
+	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {

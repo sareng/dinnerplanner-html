@@ -1,0 +1,20 @@
+
+	this.errorOutput  = function () {
+		container.find("#dishInfoName")[0].innerHTML = 'Something went wrong Please try again later';
+
+		var dishInfoImage = container.find("#dishInfoImage")[0] ;
+		dishInfoImage.src = "/images/error-image.png";
+		//dishInfoImage.alt = "image of " + dish.title;
+		container.find("#ingredientTable")[0].innerHTML = 'Offline';
+	//	console.log(dish.instructions);
+		container.find("#preparation")[0].innerHTML = 'Offline';
+	}
+
+  .catch(error => {view.errorOutput()})
+  		}else {
+  			console.log("does exist");
+  			console.log(dish.title);
+  			//view.generateIngrTable(dish, model.getNumberOfGuests());
+  			view.changeDish(dish, model.getNumberOfGuests());
+  			return dish;
+  		}

@@ -59,7 +59,9 @@ var  SelectDishListView = function (container,model, genController) {
 				new SelectDishListController(genController, view, model, id);
 	    	});
 
-    	})
+    	}).catch (
+    		container.html("Something went wrong :( Please try again later")
+		)
 
 	}
 

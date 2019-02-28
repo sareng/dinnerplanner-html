@@ -5,25 +5,33 @@ var DinnerSummaryView = function (container, model) {
         }
         else if(changeDetails.changeType == "guests") {
             this.changeNumberOfGuests();
+            this.generateDishCards();
         }
 	}.bind(this)
 	model.addObserver(this.update);
 
 	this.generateDishCards = function() {
 		var allDishes = model.getFullMenu();
+		var allImages = model.getAllMenuImages();
 		var card = [];
-	/*	allDishes.forEach(dish => {
+		let i = 0;
+		allDishes.forEach(dish => {
+		    var imagePath = "https://spoonacular.com/recipeImages/" + allImages[i].imageUrls;
+		    i++;
+		    var dishTotal = dish.pricePerServing * model.getNumberOfGuests();
+		    console.log(dish.imageUrls);
 			card.push(
 				`<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 					<div class="card text-center">
-						<img id="dishImage" class="card-img-top" src="images/${dish.image}" alt="${dish.name}">
+						<img id="dishImage" class="card-img-top" src="${imagePath}" alt="${dish.title}">
 						<div class="card-body">
-							<h5 class="card-title" id="dishTitle">${dish.name}</h5>
+							<h5 class="card-title" id="dishTitle">${dish.title}</h5>
+							<p> ${dishTotal}</p>
 						</div>
 					</div>
 				</div>`);
 		});
-		return card.join("");*/
+		return card.join("");
 	}
 	
 
